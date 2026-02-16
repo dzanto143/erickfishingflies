@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Fishing Flies Shop</title>
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
+body { background: #f5f5f5; }
+
+/* NAVBAR */
+header { background: #0b3d2e; color: #fff; padding: 15px; position: sticky; top:0; z-index:1000; }
+.nav { display: flex; justify-content: space-between; align-items: center; max-width:1200px; margin:auto; }
+.nav h1 { font-size: 22px; }
+.nav ul { list-style: none; display: flex; gap: 15px; align-items: center; }
+.nav a { color: #fff; text-decoration: none; font-weight: bold; }
+
+/* HIDE MENU BUTTON ON DESKTOP */
+.menu-toggle { display: none; font-size: 26px; background: none; border: none; color: #fff; cursor: pointer; }
+
+/* MOBILE NAV */
+@media (max-width: 768px) {
+  .menu-toggle { display: flex; }
+  .nav ul {
+    position: fixed; top: 0; left: -260px; height: 100%; width: 250px; background: #0b3d2e;
+    flex-direction: column; align-items: flex-start; padding: 70px 20px; gap: 20px;
+    transition: 0.3s ease;
+  }
+  .nav ul.active { left: 0; }
+  .nav ul li { width: 100%; }
+  .nav ul input { width: 100%; }
+}
+
+/* LAYOUT */
+.container { padding: 20px; max-width: 1200px; margin: auto; }
+
+/* SLIDER */
+.products, .products1 {
+  display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth; padding: 10px 0;
+}
+.products::-webkit-scrollbar, .products1::-webkit-scrollbar { display: none; }
+
+.card {
+  background: #fff; border-radius: 10px; padding: 15px; min-width: 260px; flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: 0.3s;
+}
+.card:hover { transform: translateY(-5px); }
+.card img { width: 100%; border-radius: 8px; height: 180px; object-fit: cover; }
+.card h3 { margin: 10px 0; }
+.price { font-weight: bold; color: #0b3d2e; }
+
+select, input, button { width: 100%; padding: 8px; margin-top: 8px; }
+button { background: #0b3d2e; color: #fff; border: none; cursor: pointer; border-radius: 5px; }
+button.secondary { background: #555; }
+
+/* SLIDER CONTROLS */
+.slider-controls, .slider-controls1 { display: flex; justify-content: center; gap: 15px; margin-top: 15px; }
+.slider-controls button, .slider-controls1 button { width: auto; padding: 10px 18px; font-size: 18px; }
+
+/* CART */
+.cart { margin-top: 30px; }
+.cart-item { font-size: 14px; margin-bottom: 5px; display:flex; justify-content:space-between; align-items:center; }
+
+/* FOOTER */
+footer { text-align: center; padding: 15px; background: #0b3d2e; color: #fff; margin-top: 40px; }
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+    <h1>🎣 Fishing Flies Shop</h1>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <ul id="navMenu">
+      <li><a href="#products" onclick="toggleMenu()">Flies</a></li>
+      <li><a href="cart.html" onclick="toggleMenu()">Cart</a></li>
+      <li><a href="#reviews" onclick="toggleMenu()">Reviews</a></li>
+      <li><input id="searchInput" placeholder="Search flies..." onkeyup="searchFlies()"></li>
+    </ul>
+  </div>
+</header>
+
+<div class="container">
+
+<!-- PRODUCTS -->
+<section id="products">
+  <h2>The Fly Box</h2><br>
+  <div class="products" id="productList"></div>
+
+  <div class="slider-controls">
+    <button onclick="slideLeft()">❮ Prev</button>
+    <button onclick="slideRight()">Next ❯</button>
+    <!--<button onclick="window.location.href='detailpage.html'">View All</button>-->
+  </div>
+</section>
+
+<!-- FEATURED PRODUCTS -->
+<section id="products1">
+  <h2>Featured Flies</h2><br>
+  <div class="products1" id="productList1"></div>
+
+  <div class="slider-controls1">
+    <button onclick="slideLeft1()">❮ Prev</button>
+    <button onclick="slideRight1()">Next ❯</button>
+    <!--<button onclick="window.location.href='detailpage.html'">View All</button>-->
+  </div>
+</section>
+
+<!-- CART -->
+<section id="cart" class="cart">
+  <h2>🛒 Cart</h2><br>
+  <div id="cartItems"></div>
+  <p><strong>Total: KES <span id="total">0</span></strong></p><br>
+  <button onclick="payNow()">Pay Now (Card / M-Pesa)</button>
+  <button class="secondary" onclick="payLater()">Pay on Delivery</button>
+  <p id="receipt"></p>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews" style="margin-top:30px">
+  <h2>⭐ Customer Reviews</h2><br>
+  <input id="reviewInput" placeholder="Write your review">
+  <button onclick="addReview()">Submit Review</button>
+  <div id="reviewList"></div>
+</section>
+
+</div>
+
+<footer>
+© 2026 Fishing Flies Shop | Secure Payments Supported
+</footer>
+
+<script>
+/* MENU TOGGLE */
+function toggleMenu() { document.getElementById("navMenu").classList.toggle("active"); }
+
+/* PRODUCTS DATA */
+const products = [
+  {image: "ClassicGreenDrake.avif", name:"Dry Flies", desc:"", price:350, link:"dryflies.html"},
+  {image: "BWOEmergerPink.avif", name:"Lake Flies", desc:"", price:400, link:"lakeflies.html"},
+  {image: "PMDLastChanceCripple.avif", name:"Nymphs", desc:"", price:380, link:"nymphs.html"},
+  {image: "Screenshot2024-12-16at7.02.04PM.avif", name:"Streamers", desc:"", price:450, link:"streamers.html"},
+  {image: "StimulatorOrange.avif", name:"Pike Flies", desc:"", price:350, link:"pikeflies.html"},
+  {image: "StimulatorOrange.avif", name:"Steelhead/Salmon Flies", desc:"", price:350, link:"steelhead.html"}, 
+  {image: "TheGreenDrake.avif", name:"Fly Assortments", desc:"", price:400, link:"assortments.html"}
+];
+
+/* GENERATE PRODUCT CARDS */
+function generateProducts(containerId, productArray) {
+  const container = document.getElementById(containerId);
+  productArray.forEach(p => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+      <img src="${p.image}">
+      <h3>${p.name}</h3>
+      <p>${p.desc}</p>
+      <p class="price">KES ${p.price}</p>
+      <button onclick="window.location.href='${p.link}'">View</button>
+    `;
+    container.appendChild(card);
+  });
+}
+
+generateProducts("productList", products);
+generateProducts("productList1", products);
+
+
+/* SLIDERS */
+function slideLeft(){ document.getElementById("productList").scrollLeft -= 300; }
+function slideRight(){ document.getElementById("productList").scrollLeft += 300; }
+function slideLeft1(){ document.getElementById("productList1").scrollLeft -= 300; }
+function slideRight1(){ document.getElementById("productList1").scrollLeft += 300; }
+
+/* AUTO SLIDE FOR FEATURED PRODUCTS */
+let autoSlide;
+const productList1 = document.getElementById("productList1");
+function startAutoSlide(){
+  autoSlide=setInterval(()=>{
+    if(productList1.scrollLeft + productList1.clientWidth >= productList1.scrollWidth-5){
+      productList1.scrollLeft=0;
+    } else { productList1.scrollLeft+=300; }
+  },3000);
+}
+productList1.addEventListener("mouseenter",()=>clearInterval(autoSlide));
+productList1.addEventListener("mouseleave",startAutoSlide);
+startAutoSlide();
+
+
+/* SEARCH */
+function searchFlies(){
+  const q=document.getElementById("searchInput").value.toLowerCase();
+  document.querySelectorAll(".card").forEach(c=>{
+    c.style.display=c.innerText.toLowerCase().includes(q)?"block":"none";
+  });
+}
+
+/* REVIEWS */
+function addReview(){
+  const reviewInput = document.getElementById("reviewInput");
+  if(!reviewInput.value.trim()) return;
+  const d=document.createElement("div");
+  d.innerText="⭐ "+reviewInput.value;
+  document.getElementById("reviewList").appendChild(d);
+  reviewInput.value="";
+}
+</script>
+
+</body>
+</html>

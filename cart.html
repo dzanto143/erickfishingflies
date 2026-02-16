@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cart - Fishing Flies Shop</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif;}
+body{background:#f5f5f5;}
+
+/* NAVBAR */
+header{background:#0b3d2e;color:#fff;padding:10px 20px;position:sticky;top:0;z-index:1000;}
+.nav{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;max-width:1200px;margin:auto;}
+.nav h1{font-size:22px;display:flex;align-items:center;gap:5px;}
+.nav ul{list-style:none;display:flex;gap:20px;align-items:center;}
+.nav a{color:#fff;text-decoration:none;font-weight:bold;}
+.nav img.home-icon{width:24px;height:24px;}
+
+/* MENU TOGGLE */
+.menu-toggle{display:none;font-size:28px;background:none;border:none;color:#fff;cursor:pointer;}
+
+/* RESPONSIVE NAV */
+@media(max-width:768px){
+  .nav ul{flex-direction:column;width:100%;max-height:0;overflow:hidden;transition:max-height 0.3s ease;}
+  .nav ul.active{max-height:400px;padding-top:10px;}
+  .nav ul li{width:100%;padding:5px 0;}
+  .menu-toggle{display:block;}
+}
+
+/* CONTAINER */
+.container{max-width:1200px;margin:auto;padding:30px 20px;}
+
+/* CART STYLES */
+.cart{background:#fff;padding:20px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.08);}
+.cart h2{margin-bottom:20px;}
+.cart-item{display:flex;justify-content:space-between;align-items:center;padding:15px 0;border-bottom:1px solid #eee;flex-wrap:wrap;}
+.cart-item span{flex:1;}
+.cart-item input{width:60px;margin-right:10px;border-radius:5px;border:1px solid #ccc;padding:5px;}
+.cart-total{font-weight:bold;margin-top:20px;font-size:18px;}
+.cart button{padding:10px 20px;margin:10px 5px 0 0;border:none;border-radius:6px;background:#0b3d2e;color:#fff;cursor:pointer;transition:0.3s;}
+.cart button:hover{background:#145c46;}
+button.remove-item{background:#ff4d4d;}
+button.remove-item:hover{background:#cc3a3a;}
+
+/* FOOTER */
+footer{background:#0b3d2e;color:#fff;text-align:center;padding:15px;margin-top:40px;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <h1><img src="https://img.icons8.com/ios-filled/50/ffffff/home.png" class="home-icon"/>Fishing Flies Shop</h1>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <ul id="navMenu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="cart.html">Cart</a></li>
+    </ul>
+  </div>
+</header>
+
+<div class="container">
+  <section class="cart">
+    <h2>🛒 Your Cart</h2>
+    <div id="cartItems"></div>
+    <div class="cart-total">Total: KES <span id="cartTotal">0</span></div>
+    <button onclick="payNow()">Pay Now</button>
+    <button onclick="payLater()">Pay on Delivery</button>
+    <p id="cartReceipt"></p>
+  </section>
+</div>
+
+<footer>
+© 2026 Fishing Flies Shop
+</footer>
+
+<script>
+// NAV MENU TOGGLE
+function toggleMenu(){ document.getElementById("navMenu").classList.toggle("active"); }
+
+// CART LOGIC
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+const cartItemsDiv = document.getElementById("cartItems");
+const cartTotalSpan = document.getElementById("cartTotal");
+const cartReceipt = document.getElementById("cartReceipt");
+
+function renderCart(){
+  cartItemsDiv.innerHTML = "";
+  let total = 0;
+  cart.forEach((item, index)=>{
+    const div = document.createElement("div");
+    div.className = "cart-item";
+    div.innerHTML = `
+      <span>${item.name} (${item.size}, ${item.color})</span>
+      <input type="number" min="1" value="${item.qty}" onchange="updateQty(${index}, this.value)">
+      <span>KES ${item.price * item.qty}</span>
+      <button class="remove-item" onclick="removeItem(${index})">Remove</button>
+    `;
+    cartItemsDiv.appendChild(div);
+    total += item.price * item.qty;
+  });
+  cartTotalSpan.innerText = total;
+  localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+function removeItem(index){ cart.splice(index,1); renderCart(); }
+function updateQty(index, value){ value = parseInt(value); if(value<1) return alert("Qty >=1"); cart[index].qty = value; renderCart(); }
+
+function payNow(){
+  if(cart.length===0){ alert("Cart is empty!"); return; }
+  let total = cart.reduce((sum,item)=>sum+item.price*item.qty,0);
+  cartReceipt.innerText = `Payment initiated. Total: KES ${total}`;
+}
+
+function payLater(){
+  if(cart.length===0){ alert("Cart is empty!"); return; }
+  cartReceipt.innerText = "Order placed. Pay on delivery.";
+}
+
+renderCart();
+</script>
+
+</body>
+</html>

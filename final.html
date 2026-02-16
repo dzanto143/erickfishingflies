@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fly Details</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial, sans-serif;
+}
+
+body{
+  background:#f5f5f5;
+}
+
+/* HEADER */
+header{
+  background:#0b3d2e;
+  color:#fff;
+  padding:15px;
+  text-align:center;
+  font-size:20px;
+  font-weight:bold;
+}
+
+/* CONTAINER */
+.container{
+  max-width:1000px;
+  margin:40px auto;
+  background:#fff;
+  border-radius:12px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.1);
+  display:flex;
+  flex-wrap:wrap;
+  overflow:hidden;
+}
+
+/* IMAGE */
+.product-image{
+  flex:1 1 400px;
+  background:#eee;
+}
+
+.product-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* DETAILS */
+.product-details{
+  flex:1 1 400px;
+  padding:30px;
+}
+
+.product-details h2{
+  margin-bottom:15px;
+}
+
+.product-details p{
+  margin-bottom:15px;
+  color:#555;
+}
+
+.price{
+  font-size:22px;
+  font-weight:bold;
+  color:#0b3d2e;
+  margin-bottom:20px;
+}
+
+/* BUTTONS */
+button{
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+  font-size:15px;
+}
+
+.primary{
+  background:#0b3d2e;
+  color:#fff;
+}
+
+.secondary{
+  background:#555;
+  color:#fff;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .container{
+    flex-direction:column;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+🎣 Fishing Flies Shop
+</header>
+
+<div class="container">
+  
+  <div class="product-image">
+    <img id="productImg" src="">
+  </div>
+
+  <div class="product-details">
+    <h2 id="productName"></h2>
+    <p id="productDesc"></p>
+    <div class="price" id="productPrice"></div>
+
+    <button class="primary" onclick="addToCart()">Add to Cart</button>
+    <button class="secondary" onclick="goBack()">⬅ Back to Shop</button>
+  </div>
+
+</div>
+
+<script>
+
+// GET SELECTED PRODUCT
+const product = JSON.parse(localStorage.getItem("selectedProduct"));
+
+if(product){
+  document.getElementById("productName").innerText = product.name;
+  document.getElementById("productDesc").innerText = product.desc;
+  document.getElementById("productPrice").innerText = "KES " + product.price;
+  document.getElementById("productImg").src = product.image;
+} else {
+  document.body.innerHTML = "<h2 style='text-align:center;margin-top:50px;'>No product selected</h2>";
+}
+
+// ADD TO CART FROM VIEW PAGE
+function addToCart(){
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cart.push(product);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  alert("Added to cart ✅");
+}
+
+// BACK BUTTON
+function goBack(){
+  window.location.href = "index.html";
+}
+
+</script>
+
+</body>
+</html>
