@@ -92,7 +92,7 @@ footer { text-align: center; padding: 15px; background: #0b3d2e; color: #fff; ma
 
 <header>
   <div class="nav">
-    <h1>🎣 Fishing Flies Shop</h1>
+    <h1>🎣 Amiani`s Fly Wholesalers</h1>
     <button class="menu-toggle" onclick="toggleMenu()">☰</button>
     <ul id="navMenu">
       <li><a href="#products" onclick="toggleMenu()">Flies</a></li>
@@ -164,13 +164,13 @@ function toggleMenu() { document.getElementById("navMenu").classList.toggle("act
 
 /* PRODUCTS DATA */
 const products = [
-  {image: "ClassicGreenDrake.avif", name:"Dry Flies", desc:"", price:350, link:"dryflies.html"},
-  {image: "BWOEmergerPink.avif", name:"Lake Flies", desc:"", price:400, link:"lakeflies.html"},
-  {image: "PMDLastChanceCripple.avif", name:"Nymphs", desc:"", price:380, link:"nymphs.html"},
-  {image: "Screenshot2024-12-16at7.02.04PM.avif", name:"Streamers", desc:"", price:450, link:"streamers.html"},
-  {image: "StimulatorOrange.avif", name:"Pike Flies", desc:"", price:350, link:"pikeflies.html"},
-  {image: "StimulatorOrange.avif", name:"Steelhead/Salmon Flies", desc:"", price:350, link:"steelhead.html"}, 
-  {image: "TheGreenDrake.avif", name:"Fly Assortments", desc:"", price:400, link:"assortments.html"}
+  {image: "ClassicGreenDrake.avif", name:"Dry Flies", desc:"", price:3.5, link:"dryflies.html"},
+  {image: "BWOEmergerPink.avif", name:"Lake Flies", desc:"", price:3.5, link:"lakeflies.html"},
+  {image: "PMDLastChanceCripple.avif", name:"Nymphs", desc:"", price:3.5, link:"nymphs.html"},
+  {image: "Screenshot2024-12-16at7.02.04PM.avif", name:"Streamers", desc:"", price:4.5, link:"streamers.html"},
+  {image: "StimulatorOrange.avif", name:"Pike Flies", desc:"", price:3.5, link:"pikeflies.html"},
+  {image: "StimulatorOrange.avif", name:"Steelhead/Salmon Flies", desc:"", price:3.5, link:"steelhead.html"}, 
+  {image: "TheGreenDrake.avif", name:"Fly Assortments", desc:"", price:3.5, link:"assortments.html"}
 ];
 
 /* GENERATE PRODUCT CARDS */
@@ -183,7 +183,7 @@ function generateProducts(containerId, productArray) {
       <img src="${p.image}">
       <h3>${p.name}</h3>
       <p>${p.desc}</p>
-      <p class="price">KES ${p.price}</p>
+      <p class="price">USD ${p.price}</p>
       <button onclick="window.location.href='${p.link}'">View</button>
     `;
     container.appendChild(card);
