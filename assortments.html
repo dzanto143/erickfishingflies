@@ -172,14 +172,14 @@ function toggleMenu(){ document.getElementById("navMenu").classList.toggle("acti
 
 // PRODUCTS DATA
 const products = [
-{ name:"Dry Fly – Adams", desc:"Classic surface fishing fly perfect for trout in calm waters.", price:350, sizes:["10","12","14","16","18","20"], colors:["Brown","Gray"] },
-{ name:"Nymph – Pheasant Tail", desc:"Highly effective underwater fly for river trout.", price:400, sizes:["10","12","14","16","18","20"], colors:["Copper","Olive"] },
-{ name:"Wet Fly – Black Ghost", desc:"Ideal for fishing in low light conditions.", price:380, sizes:["10","12","14","16","18","20"], colors:["Black"] },
-{ name:"Streamer – Woolly Bugger", desc:"A powerful attractor for larger trout.", price:450, sizes:["10","12","14","16","18","20"], colors:["Black","Olive"] },
-{ name:"Royal Wulff", desc:"High floating attractor pattern.", price:420, sizes:["10","12","14","16","18","20"], colors:["Red","White"] },
-{ name:"Elk Hair Caddis", desc:"Perfect fly for fast-moving water.", price:390, sizes:["10","12","14","16","18","20"], colors:["Tan","Brown"] },
-{ name:"Hopper Pattern", desc:"Great during summer months.", price:460, sizes:["10","12","14","16","18","20"], colors:["Green","Yellow"] },
-{ name:"Midge Fly", desc:"Small but extremely effective.", price:300, sizes:["10","12","14","16","18","20"], colors:["Gray","Black"] }
+{ image: "BRT`s Meat Locker steamer assortment.webp",name:"BRT`s Meat Locker steamer assortment", desc:".", price:3.5, sizes:["10","12","14","16","18","20"], colors:["Brown","Gray"] },
+{ image: "Bow River Fly Selection.webp",name:"Bow River Fly Selection", desc:".", price:3.5, sizes:["10","12","14","16","18","20"], colors:["Copper","Olive"] },
+{ image: "BRT Terrestrial Fly Selection.avif",name:"BRT Terrestrial Fly Selection", desc:"Ideal for fishing in low light conditions.", price:3.5, sizes:["10","12","14","16","18","20"], colors:["Black"] },
+{ image: "Bow River Fly Selection.webp",name:"Streamer – Woolly Bugger", desc:"A powerful attractor for larger trout.", price:3.5, sizes:["10","12","14","16","18","20"], colors:["Black","Olive"] },
+{ image: "Bow River Fly Selection.webp",name:"Royal Wulff", desc:"High floating attractor pattern.", price:3.5, sizes:["10","12","14","16","18","20"], colors:["Red","White"] },
+{ image: "Bow River Fly Selection.webp",name:"Elk Hair Caddis", desc:"Perfect fly for fast-moving water.", price:3.5, sizes:["10","12","14","16","18","20"], colors:["Tan","Brown"] },
+{ image: "Bow River Fly Selection.webp",name:"Hopper Pattern", desc:"Great during summer months.", price:3.5, sizes:["10","12","14","16","18","20"], colors:["Green","Yellow"] },
+{ image: "Bow River Fly Selection.webp",name:"Midge Fly", desc:"Small but extremely effective.", price:3.5, sizes:["10","12","14","16","18","20"], colors:["Gray","Black"] }
 ];
 
 const productList = document.getElementById("productList");
@@ -194,11 +194,11 @@ products.forEach((p,index)=>{
   const card = document.createElement("div");
   card.className="card";
   card.innerHTML=`
-    <img src="https://via.placeholder.com/400x300">
     <div class="card-content">
+      <img src="${p.image}">
       <h3>${p.name}</h3>
       <p>${p.desc.substring(0,50)}...</p>
-      <div class="price">KES ${p.price}</div>
+      <div class="price">USD ${p.price}</div>
       <button onclick="viewProduct(${index})">View</button>
     </div>
   `;
@@ -211,7 +211,7 @@ function viewProduct(index){
   const p = products[index];
   document.getElementById("modalTitle").innerText = p.name;
   document.getElementById("modalDesc").innerText = p.desc;
-  document.getElementById("modalPrice").innerText = "KES " + p.price;
+  document.getElementById("modalPrice").innerText = "USD " + p.price;
   document.getElementById("modalImage").src = "https://via.placeholder.com/400x300";
   document.getElementById("modalSize").innerHTML = `<option value="">Select Size</option>` + p.sizes.map(s=>`<option>${s}</option>`).join("");
   document.getElementById("modalColor").innerHTML = `<option value="">Select Color</option>` + p.colors.map(c=>`<option>${c}</option>`).join("");
