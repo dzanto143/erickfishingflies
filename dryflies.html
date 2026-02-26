@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Fishing Flies Shop</title>
-
+<link rel="icon" href="logo.png" type="image/x-icon">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif;}
 body{background:#f5f5f5;}
@@ -54,12 +54,75 @@ button.buy-now:hover{background:#e65c00;}
 select,input{width:100%;padding:8px;margin:8px 0;border-radius:5px;border:1px solid #ccc;}
 
 /* MODAL */
-.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);justify-content:center;align-items:center;padding:20px;z-index:1000;}
-.modal-content{background:#fff;width:100%;max-width:500px;padding:25px;border-radius:10px;position:relative;animation:fadeIn 0.3s ease;}
-.modal-content img{width:100%;height:250px;object-fit:cover;border-radius:8px;margin-bottom:15px;}
-.close{position:absolute;right:15px;top:10px;font-size:22px;cursor:pointer;color:#555;}
-@keyframes fadeIn{from{opacity:0;transform:scale(0.9);}to{opacity:1;transform:scale(1);}}
+/* MODAL */
+.modal{
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.6);
+  justify-content:center;
+  align-items:center;
+  padding:10px; /* slightly smaller padding */
+  z-index:1000;
+}
 
+.modal-content{
+  background:#fff;
+  width:90%;           /* smaller width on large screens */
+  max-width:400px;     /* reduced from 500px */
+  padding:20px;        /* reduced from 25px */
+  border-radius:10px;
+  position:relative;
+  animation:fadeIn 0.3s ease;
+}
+
+.modal-content img{
+  width:100%;
+  height:180px;        /* reduced from 250px */
+  object-fit:cover;
+  border-radius:8px;
+  margin-bottom:12px;  /* slightly smaller spacing */
+}
+
+.close{
+  position:absolute;
+  right:10px;
+  top:8px;
+  font-size:20px;      /* slightly smaller */
+  cursor:pointer;
+  color:#555;
+}
+
+.modal-content h3{
+  font-size:18px;      /* slightly smaller */
+  margin-bottom:6px;
+}
+
+.modal-content p{
+  font-size:13px;      /* slightly smaller */
+  margin-bottom:8px;
+}
+
+.modal-content label{
+  font-size:13px;      /* slightly smaller */
+  margin-top:6px;
+}
+
+.modal-content select,
+.modal-content input{
+  padding:6px;         /* smaller inputs */
+  margin:6px 0;
+  border-radius:5px;
+  border:1px solid #ccc;
+}
+
+.modal-content button{
+  padding:8px;         /* smaller buttons */
+  margin-top:5px;
+}
 /* CART */
 .cart{background:#fff;padding:20px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.08);margin-top:30px;}
 .cart h2{margin-bottom:15px;}
@@ -93,6 +156,46 @@ select,input{width:100%;padding:8px;margin:8px 0;border-radius:5px;border:1px so
   background:#0b3d2e;
 }
 
+/* WHATSAPP FLOATING BUTTON */
+.whatsapp-chat{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  color: #fff;
+  padding: 14px 18px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 9999;
+  transition: 0.3s;
+}
+
+.whatsapp-chat:hover{
+  background: #1ebe5d;
+  transform: scale(1.05);
+}
+
+/* LOGO AREA */
+.logo-area{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-area img{
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.logo-area h1{
+  font-size: 18px;
+  font-weight: bold;
+}
+
 /* FOOTER */
 footer{background:#0b3d2e;color:#fff;text-align:center;padding:15px;margin-top:40px;}
 </style>
@@ -101,7 +204,10 @@ footer{background:#0b3d2e;color:#fff;text-align:center;padding:15px;margin-top:4
 
 <header>
   <div class="nav">
-    <h1>🎣 Fishing Flies Shop</h1>
+        <div class="logo-area">
+      <img src="logo.png" alt="Amiani's Fly Wholesalers Logo">
+      <h1>Amiani's Fly Wholesalers</h1>
+    </div>
 
     <!-- MENU TOGGLE -->
     <button class="menu-toggle" onclick="toggleMenu()">☰</button>
@@ -115,6 +221,11 @@ footer{background:#0b3d2e;color:#fff;text-align:center;padding:15px;margin-top:4
     </ul>
   </div>
 </header>
+<!-- WhatsApp Chat Button -->
+<a href="https://wa.me/254712345678" class="whatsapp-chat" target="_blank">
+  💬 Chat With Us
+</a>
+
 
 <div class="container">
 <h2>Fishing Flies Collection</h2><br>
@@ -151,6 +262,8 @@ footer{background:#0b3d2e;color:#fff;text-align:center;padding:15px;margin-top:4
     <h3 id="modalTitle"></h3>
     <p id="modalDesc"></p>
     <p class="price" id="modalPrice"></p>
+    <label>Type</label>
+    <select id="modalType"></select>
     <label>Size</label>
     <select id="modalSize"></select>
     <label>Color</label>
@@ -172,14 +285,18 @@ function toggleMenu(){ document.getElementById("navMenu").classList.toggle("acti
 
 // PRODUCTS DATA
 const products = [
-{ image: "BRT`s Meat Locker steamer assortment.webp",name:"BRT`s Meat Locker steamer assortment", desc:".", price:3.5, sizes:["10","12","14","16","18","20"], colors:["Brown","Gray"] },
-{ image: "Bow River Fly Selection.webp",name:"Bow River Fly Selection", desc:".", price:3.5, sizes:["10","12","14","16","18","20"], colors:["Copper","Olive"] },
-{ image: "BRT Terrestrial Fly Selection.avif",name:"BRT Terrestrial Fly Selection", desc:"Ideal for fishing in low light conditions.", price:3.5, sizes:["10","12","14","16","18","20"], colors:["Black"] },
-{ image: "Bow River Fly Selection.webp",name:"Streamer – Woolly Bugger", desc:"A powerful attractor for larger trout.", price:3.5, sizes:["10","12","14","16","18","20"], colors:["Black","Olive"] },
-{ image: "Bow River Fly Selection.webp",name:"Royal Wulff", desc:"High floating attractor pattern.", price:3.5, sizes:["10","12","14","16","18","20"], colors:["Red","White"] },
-{ image: "Bow River Fly Selection.webp",name:"Elk Hair Caddis", desc:"Perfect fly for fast-moving water.", price:3.5, sizes:["10","12","14","16","18","20"], colors:["Tan","Brown"] },
-{ image: "Bow River Fly Selection.webp",name:"Hopper Pattern", desc:"Great during summer months.", price:3.5, sizes:["10","12","14","16","18","20"], colors:["Green","Yellow"] },
-{ image: "Bow River Fly Selection.webp",name:"Midge Fly", desc:"Small but extremely effective.", price:3.5, sizes:["10","12","14","16","18","20"], colors:["Gray","Black"] }
+{ image: "adams.jpg",name:"Adams", desc:".", price:3.5, Type:["Standard Adams","Parachute Adams", "Female Adams","Adams Irresistible","Adams Wulff","CDC Adams","Extended Body Adams","Adams Variant","Bead Head Adams (Wet Version)"], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Cream"] },
+{ image: "Blue Winged Olive (BWO).jpg",name:"Blue Winged Olive (BWO)", desc:".", price:3.5, sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Cream"] },
+{ image: "Elk Hair Caddis.jpg",name:"Elk Hair Caddis", desc:".", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Black"] },
+{ image: "Royal Wulff.jpg",name:"Royal Wulff", desc:".", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Black","Olive"] },
+{ image: "Stimulator.jpg",name:"Stimulator", desc:".", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Red","White"] },
+{ image: "Mayfly Patte.jpg",name:"Mayfly Patterns", desc:".",  price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Tan","Brown"] },
+{ image: "Mosquito.jpg",name:"Mosquito", desc:".", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Green","Yellow"] },
+{ image: "Beetles.jpg",name:"Beetles", desc:".", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Green","Yellow"] },
+{ image: "Hopper Patterns.jpg",name:"Hopper Patterns", desc:".", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Green","Yellow"] },
+{ image: "CDC Dry Flies.jpg",name:"CDC Dry Flies", desc:".", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Green","Yellow"] },
+{ image: "Parachute Patterns.jpg",name:"Parachute Patterns", desc:".", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Green","Yellow"] },
+{ image: "ants.jpg",name:"Ants", desc:".", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Gray","Black"] }
 ];
 
 const productList = document.getElementById("productList");
@@ -211,8 +328,14 @@ function viewProduct(index){
   const p = products[index];
   document.getElementById("modalTitle").innerText = p.name;
   document.getElementById("modalDesc").innerText = p.desc;
-  document.getElementById("modalPrice").innerText = "KES " + p.price;
-  document.getElementById("modalImage").src = "https://via.placeholder.com/400x300";
+  document.getElementById("modalPrice").innerText = "USD " + p.price;
+  document.getElementById("modalImage").src = p.image;
+   if(p.Type && p.Type.length > 0){
+    document.getElementById("modalType").innerHTML = `<option value="">Select Type</option>` +
+      p.Type.map((t,i)=>`<option ${i===0 ? 'selected' : ''}>${t}</option>`).join("");
+  } else {
+    document.getElementById("modalType").innerHTML = `<option value="">No Types Available</option>`;
+  }
   document.getElementById("modalSize").innerHTML = `<option value="">Select Size</option>` + p.sizes.map(s=>`<option>${s}</option>`).join("");
   document.getElementById("modalColor").innerHTML = `<option value="">Select Color</option>` + p.colors.map(c=>`<option>${c}</option>`).join("");
   document.getElementById("modalQty").value = 1;

@@ -229,7 +229,7 @@ function renderCart(){
     div.innerHTML=`
       <span>${item.name} (${item.size}, ${item.color})</span>
       <input type="number" min="1" value="${item.qty}" onchange="updateQty(${index}, this.value)">
-      <span>KES ${item.price * item.qty}</span>
+      <span>USD ${item.price * item.qty}</span>
       <button onclick="removeFromCart(${index})" style="background:#ff4d4d">X</button>
     `;
     cartItemsDiv.appendChild(div);
@@ -257,7 +257,7 @@ function buyNowModal(){
   if(!size || !color || qty<1){ alert("Select size, color & valid quantity!"); return; }
   const p = products[currentProductIndex];
   const total = p.price * qty;
-  alert(`Proceeding to payment for ${qty} x ${p.name} (${size}, ${color})\nTotal: KES ${total}`);
+  alert(`Proceeding to payment for ${qty} x ${p.name} (${size}, ${color})\nTotal: USD ${total}`);
   closeModal();
 }
 
