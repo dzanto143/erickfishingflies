@@ -247,7 +247,7 @@ footer{background:#0b3d2e;color:#fff;text-align:center;padding:15px;margin-top:4
 <section class="cart" id="cartSection">
 <h2>🛒 Cart</h2>
 <div id="cartItems"></div>
-<div class="cart-total">Total: KES <span id="cartTotal">0</span></div>
+<div class="cart-total">Total: USD <span id="cartTotal">0</span></div>
 <button onclick="payNow()">Pay Now</button>
 <button onclick="payLater()">Pay on Delivery</button>
 <p id="cartReceipt"></p>
@@ -286,15 +286,15 @@ function toggleMenu(){ document.getElementById("navMenu").classList.toggle("acti
 // PRODUCTS DATA
 const products = [
 { image: "adams.jpg",name:"Adams", desc:".", price:3.5, Type:["Standard Adams","Parachute Adams", "Female Adams","Adams Irresistible","Adams Wulff","CDC Adams","Extended Body Adams","Adams Variant","Bead Head Adams (Wet Version)"], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Cream"] },
-{ image: "Blue Winged Olive (BWO).jpg",name:"Blue Winged Olive (BWO)", desc:".", price:3.5, sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Cream"] },
-{ image: "Elk Hair Caddis.jpg",name:"Elk Hair Caddis", desc:".", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Black"] },
-{ image: "Royal Wulff.jpg",name:"Royal Wulff", desc:".", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Black","Olive"] },
-{ image: "Stimulator.jpg",name:"Stimulator", desc:".", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Red","White"] },
-{ image: "Mayfly Patte.jpg",name:"Mayfly Patterns", desc:".",  price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Tan","Brown"] },
-{ image: "Mosquito.jpg",name:"Mosquito", desc:".", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Green","Yellow"] },
-{ image: "Beetles.jpg",name:"Beetles", desc:".", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Green","Yellow"] },
-{ image: "Hopper Patterns.jpg",name:"Hopper Patterns", desc:".", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Green","Yellow"] },
-{ image: "CDC Dry Flies.jpg",name:"CDC Dry Flies", desc:".", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Green","Yellow"] },
+{ image: "Blue Winged Olive (BWO).jpg",name:"Blue Winged Olive (BWO)", desc:".", price:3.5, Type:["BWO Dry Fly", "Parachute BWO", "BWO Comparadun","CDC BWO","BWO Emerger","BWO Nymph","Bead Head BWO Nymph","BWO Spinner"], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"] },
+{ image: "Elk Hair Caddis.jpg",name:"Elk Hair Caddis", desc:".", price:3.5, Type:["Standard Elk Hair Caddis","CDC Elk Hair Caddis","Hi-Vis Elk Hair Caddis","Foam Elk Hair Caddis","Peacock Elk Hair Caddis","Bead Head Elk Hair Caddis (Wet Version)","X-Caddis (Elk Hair Style)"], sizes:["10","12","14","16","18","20"], colors:["Black","Tan","Brown","Olive","Yellow","Peacock"] },
+{ image: "Royal Wulff.jpg",name:"Royal Wulff", desc:".", price:3.5, Type:["Standard Royal Wulff","Mini Royal Wulff","Royal Wulff Cripple","Royal Wulff Parachute","Foam Royal Wulff","Royal Wulff Extended Body","Royal Wulff Hi-Vis"], sizes:["10","12","14","16","18","20"], colors:["Black","Tan","Brown","Olive","Yellow","Peacock"] },
+{ image: "Stimulator.jpg",name:"Stimulator", desc:".", price:3.5, Type:["Standard Stimulator","Orange Stimulator","Yellow Stimulator","Olive Stimulator","Black Stimulator","Peacock Stimulator","Double Stimulator","Foam Stimulator"], sizes:["10","12","14","16","18","20"], colors:["Red","White","Black","Tan","Brown","Olive","Yellow","Peacock"] },
+{ image: "Mayfly Patte.jpg",name:"Mayfly Patterns", desc:".",  price:3.5, Type:["Mayfly Nymphs","Mayfly Emergers","Mayfly Dry Flies (Duns)","Mayfly Spinner Patterns","Extended Body Mayfly","Parachute Mayfly"], sizes:["10","12","14","16","18","20"], colors:["Tan","Brown","Blue","Green","Hendrickson",] },
+{ image: "Mosquito.jpg",name:"Mosquito", desc:".", price:3.5, Type:["Standard Mosquito Fly","Griffith’s Gnat (Mosquito Style)","CDC Mosquito","Foam Mosquito","Hi-Vis Mosquito","Mosquito Emerger","Mosquito Pupa","Extended Body Mosquito"], sizes:["10","12","14","16","18","20"], colors:["Green","Brown","Gray","Olive","Yellow", "Cream"] },
+{ image: "Beetles.jpg",name:"Beetles", desc:".", price:3.5, Type:["Foam Beetle","CDC Beetle","Hi-Vis Beetle","Peacock Beetle","Rubber Leg Beetle","Double Foam Beetle","Beetle Spinner","Mini Beetle"], sizes:["10","12","14","16","18","20"], colors:["Green","Brown","Gray","Olive","Yellow", "Cream"] },
+{ image: "Hopper Patterns.jpg",name:"Hopper Patterns", desc:".", price:3.5, Type:["Standard Grasshopper Pattern","Dave’s Hopper","Foam Hopper","Hi-Vis Hopper","Parachute Hopper","Rubber Leg Hopper","Extended Body Hopper","Mini Hopper"], sizes:["10","12","14","16","18","20"], colors:["Green","Brown","Gray","Olive","Yellow", "Cream"] },
+{ image: "CDC Dry Flies.jpg",name:"CDC Dry Flies", desc:".", price:3.5, Type:["CDC Adams","CDC Caddis","CDC Mayfly","CDC Comparadun","CDC Emerger","CDC Midge","CDC Spinner","CDC Elk Hair Caddis","CDC Ant"], sizes:["10","12","14","16","18","20"], colors:["Green","Brown","Gray","Olive","Yellow", "Cream"] },
 { image: "Parachute Patterns.jpg",name:"Parachute Patterns", desc:".", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Green","Yellow"] },
 { image: "ants.jpg",name:"Ants", desc:".", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Gray","Black"] }
 ];
@@ -351,9 +351,9 @@ function renderCart(){
     const div = document.createElement("div");
     div.className="cart-item";
     div.innerHTML=`
-      <span>${item.name} (${item.size}, ${item.color})</span>
+      <span>${item.name} (${item.Type}, ${item.size}, ${item.color})</span>
       <input type="number" min="1" value="${item.qty}" onchange="updateQty(${index}, this.value)">
-      <span>KES ${item.price * item.qty}</span>
+      <span>USD ${item.price * item.qty}</span>
       <button onclick="removeFromCart(${index})" style="background:#ff4d4d">X</button>
     `;
     cartItemsDiv.appendChild(div);
@@ -364,30 +364,32 @@ function renderCart(){
 }
 
 function addToCartModal(){
+   const Type =document.getElementById("modalType").value;
   const size = document.getElementById("modalSize").value;
   const color = document.getElementById("modalColor").value;
   const qty = parseInt(document.getElementById("modalQty").value);
-  if(!size || !color || qty<1){ alert("Select size, color & valid quantity!"); return; }
+  if(!Type || !size || !color || qty<1){ alert("Select Type, size, color & valid quantity!"); return; }
   const p = products[currentProductIndex];
-  cart.push({name:p.name, price:p.price, size, color, qty});
+  cart.push({name:p.name, price:p.price, Type, size, color, qty});
   renderCart();
   closeModal();
 }
 
 function buyNowModal(){
+  const Type =document.getElementById("modalType").value;
   const size = document.getElementById("modalSize").value;
   const color = document.getElementById("modalColor").value;
   const qty = parseInt(document.getElementById("modalQty").value);
-  if(!size || !color || qty<1){ alert("Select size, color & valid quantity!"); return; }
+  if(!Type || !size || !color || qty<1){ alert("Select type, size, color & valid quantity!"); return; }
   const p = products[currentProductIndex];
   const total = p.price * qty;
-  alert(`Proceeding to payment for ${qty} x ${p.name} (${size}, ${color})\nTotal: KES ${total}`);
+  alert(`Proceeding to payment for ${qty} x ${p.name} (${Type}, ${size}, ${color})\nTotal: USD ${total}`);
   closeModal();
 }
 
 function removeFromCart(index){ cart.splice(index,1); renderCart(); }
 function updateQty(index,value){ value=parseInt(value); if(value<1) return alert("Qty >=1"); cart[index].qty=value; renderCart(); }
-function payNow(){ if(cart.length===0) return alert("Cart empty!"); let total=cart.reduce((sum,i)=>sum+i.price*i.qty,0); cartReceipt.innerText=`Payment initiated. Total: KES ${total}`; }
+function payNow(){ if(cart.length===0) return alert("Cart empty!"); let total=cart.reduce((sum,i)=>sum+i.price*i.qty,0); cartReceipt.innerText=`Payment initiated. Total: USD ${total}`; }
 function payLater(){ if(cart.length===0) return alert("Cart empty!"); cartReceipt.innerText="Order placed. Pay on delivery."; }
 
 renderCart();
