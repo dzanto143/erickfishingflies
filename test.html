@@ -434,8 +434,8 @@ footer{
         </div>
       </li>
 
-      <!-- Dark Mode Toggle 
-      <li style="cursor:pointer" onclick="toggleDarkMode()">🌙</li>-->
+      <!-- Dark Mode Toggle -->
+      <li style="cursor:pointer" onclick="toggleDarkMode()">🌙</li>
     </ul>
   </div>
 </header>
@@ -449,8 +449,8 @@ footer{
 <section class="categories">
 <h2>Fly Categories</h2>
 <div class="circle-grid">
-  <div class="circle" onclick="filterType('Dry')"><img src="ClassicGreenDrake.avif"><span>Dry Flies</span></div>
-  <div class="circle" onclick="filterType('Lake')"><img src="BWOEmergerPink.avif"><span>Lake Flies</span></div>
+  <div class="circle" onclick="window.location.href='dryflies.html'"><img src="ClassicGreenDrake.avif"><span>Dry Flies</span></div>
+  <div class="circle" onclick="window.location.href='dryflies.html'"><img src="BWOEmergerPink.avif"><span>Lake Flies</span></div>
   <div class="circle" onclick="filterType('Nymph')"><img src="PMDLastChanceCripple.avif"><span>Nymphs</span></div>
   <div class="circle" onclick="filterType('Streamer')"><img src="Screenshot2024-12-16at7.02.04PM.avif"><span>Streamers</span></div>
   <div class="circle" onclick="filterType('Lake')"><img src="StimulatorOrange.avif"><span>Pike Flies</span></div>
@@ -491,35 +491,42 @@ footer{
 <footer>© 2026 Amiani's Fly Wholesalers</footer>
 
 <script>
-let flies=[
-{id:1,name:"Adams Dry Fly",type:"Dry",price:1.5,inventory:200,image:"https://images.unsplash.com/photo-1560275619-4662e36fa65c"},
-{id:2,name:"Pheasant Tail Nymph",type:"Nymph",price:1.6,inventory:180,image:"https://images.unsplash.com/photo-1507525428034-b723cf961d3e"},
-{id:3,name:"Woolly Bugger",type:"Streamer",price:1.8,inventory:300,image:"https://images.unsplash.com/photo-1493558103817-58b2924bce98"},
-{id:4,name:"Chironomid Lake Fly",type:"Lake",price:1.7,inventory:150,image:"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"}
-];
+// Number of products to display under "Popular Collections"
+const POPULAR_COUNT = 4;
 
-let cart=[];
-let total=0;
+// Returns `count` random flies from your inventory
+function getRandomFlies(count) {
+  const shuffled = [...flies].sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, count);
+}
 
-function renderProducts(){
-  let catalog=document.getElementById("catalog");
-  catalog.innerHTML="";
-  let search=document.getElementById("search").value.toLowerCase();
+// Render Popular Collections dynamically
+function renderPopularCollections() {
+  let catalog = document.getElementById("catalog");
+  if(!catalog) return;
+  catalog.innerHTML = "";
 
-  flies.forEach((fly,i)=>{
-    if(search && !fly.name.toLowerCase().includes(search) && !fly.type.toLowerCase().includes(search)) return;
-    catalog.innerHTML+=`
+  const randomFlies = getRandomFlies(POPULAR_COUNT);
+
+  randomFlies.forEach((fly, i) => {
+    catalog.innerHTML += `
       <div class="product">
         <img src="${fly.image}" onclick="alert('${fly.name}')">
         <h3>${fly.name}</h3>
         <p>Type: ${fly.type}</p>
         <p>Stock: ${fly.inventory}</p>
         <p class="price">$${fly.price.toFixed(2)}</p>
-        <button onclick="addToCart(${i})">Add To Cart</button>
+        <button onclick="addToCart(${flies.indexOf(fly)})">Add To Cart</button>
       </div>
     `;
   });
 }
+
+// Rotate Popular Collections automatically every 10 seconds
+document.addEventListener("DOMContentLoaded", () => {
+  renderPopularCollections();
+  setInterval(renderPopularCollections, 10000);
+});
 
 function addToCart(i){
   let fly=flies[i];

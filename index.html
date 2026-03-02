@@ -449,13 +449,13 @@ footer{
 <section class="categories">
 <h2>Fly Categories</h2>
 <div class="circle-grid">
-  <div class="circle" onclick="filterType('Dry')"><img src="dryflies.webp"><span>Dry Flies</span></div>
-  <div class="circle" onclick="filterType('Lake')"><img src="lakeflies.jpg"><span>Lake Flies</span></div>
-  <div class="circle" onclick="filterType('Nymph')"><img src="nymphs.jpg"><span>Nymphs</span></div>
-  <div class="circle" onclick="filterType('Streamer')"><img src="streamers.webp"><span>Streamers</span></div>
-  <div class="circle" onclick="filterType('Lake')"><img src="pike.jpg"><span>Pike Flies</span></div>
-  <div class="circle" onclick="filterType('Dry')"><img src="Assortments.jpg"><span>Assortments</span></div>
-  <div class="circle" onclick="filterType('Steelhead')"><img src="steelhead.jpg"><span>Steelhead/ <br>Salmon</span></div>
+  <div class="circle" onclick="window.location.href='dryflies.html'"><img src="dryflies.webp"><span>Dry Flies</span></div>
+  <div class="circle" onclick="window.location.href='lakeflies.html'"><img src="lakeflies.jpg"><span>Lake Flies</span></div>
+  <div class="circle" onclick="window.location.href='nymphs.html'"><img src="nymphs.jpg"><span>Nymphs</span></div>
+  <div class="circle" onclick="window.location.href='streamers.html'"><img src="streamers.webp"><span>Streamers</span></div>
+  <div class="circle" onclick="window.location.href='pikeflies.html'"><img src="pike.jpg"><span>Pike Flies</span></div>
+  <div class="circle" onclick="window.location.href='assortments.html'"><img src="Assortments.jpg"><span>Assortments</span></div>
+  <div class="circle" onclick="window.location.href='steelhead.html'"><img src="steelhead.jpg"><span>Steelhead/ <br>Salmon</span></div>
 </div>
 </section>
 
@@ -491,34 +491,72 @@ footer{
 <footer>© 2026 Amiani's Fly Wholesalers</footer>
 
 <script>
-let flies=[
-{id:1,name:"Adams Dry Fly",type:"Dry",price:1.5,inventory:200,image:"https://images.unsplash.com/photo-1560275619-4662e36fa65c"},
-{id:2,name:"Pheasant Tail Nymph",type:"Nymph",price:1.6,inventory:180,image:"https://images.unsplash.com/photo-1507525428034-b723cf961d3e"},
-{id:3,name:"Woolly Bugger",type:"Streamer",price:1.8,inventory:300,image:"https://images.unsplash.com/photo-1493558103817-58b2924bce98"},
-{id:4,name:"Chironomid Lake Fly",type:"Lake",price:1.7,inventory:150,image:"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"}
+let flies = [
+  {id:1,name:"Adams Dry Fly",type:"Dry",price:1.5,inventory:200,image:"https://images.unsplash.com/photo-1560275619-4662e36fa65c"},
+  {id:2,name:"Pheasant Tail Nymph",type:"Nymph",price:1.6,inventory:180,image:"https://images.unsplash.com/photo-1507525428034-b723cf961d3e"},
+  {id:3,name:"Woolly Bugger",type:"Streamer",price:1.8,inventory:300,image:"https://images.unsplash.com/photo-1493558103817-58b2924bce98"},
+  {id:4,name:"Chironomid Lake Fly",type:"Lake",price:1.7,inventory:150,image:"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"}
 ];
 
-let cart=[];
-let total=0;
+let cart = [];
+let total = 0;
 
-function renderProducts(){
-  let catalog=document.getElementById("catalog");
-  catalog.innerHTML="";
-  let search=document.getElementById("search").value.toLowerCase();
+// Get `count` random flies
+function getRandomFlies(count) {
+  const shuffled = [...flies].sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, count);
+}
 
-  flies.forEach((fly,i)=>{
-    if(search && !fly.name.toLowerCase().includes(search) && !fly.type.toLowerCase().includes(search)) return;
-    catalog.innerHTML+=`
+// Render products in catalog
+function renderProducts(randomMode = false) {
+  const catalog = document.getElementById("catalog");
+  if (!catalog) return;
+
+  catalog.innerHTML = "";
+
+  let productsToShow;
+
+  if (randomMode) {
+    productsToShow = getRandomFlies(4); // pick 4 random flies
+  } else {
+    const search = document.getElementById("search")?.value.toLowerCase() || "";
+    productsToShow = flies.filter(fly => 
+      fly.name.toLowerCase().includes(search) || fly.type.toLowerCase().includes(search)
+    );
+  }
+
+  productsToShow.forEach(fly => {
+    catalog.innerHTML += `
       <div class="product">
         <img src="${fly.image}" onclick="alert('${fly.name}')">
         <h3>${fly.name}</h3>
         <p>Type: ${fly.type}</p>
         <p>Stock: ${fly.inventory}</p>
-        <p class="price">$${fly.price.toFixed(2)}</p>
-        <button onclick="addToCart(${i})">Add To Cart</button>
+        <button onclick="addToCart(${flies.indexOf(fly)})">Add To Cart</button>
       </div>
     `;
   });
+}
+
+// Auto-display random flies on page load and rotate every 10s
+document.addEventListener("DOMContentLoaded", () => {
+  renderProducts(true); // initial display
+  setInterval(() => {
+    const searchValue = document.getElementById("search")?.value.trim();
+    if (!searchValue) renderProducts(true); // rotate only if search is empty
+  }, 10000); // 10 seconds
+});
+
+// Add to cart function
+function addToCart(i) {
+  const fly = flies[i];
+  cart.push(fly);
+  total += fly.price;
+  document.getElementById("cartCount").innerText = cart.length;
+  document.getElementById("total").innerText = total.toFixed(2);
+
+  const cartItems = document.getElementById("cartItems");
+  cartItems.innerHTML += `<div class="cart-item"><span>${fly.name}</span><span>$${fly.price}</span></div>`;
 }
 
 function addToCart(i){
