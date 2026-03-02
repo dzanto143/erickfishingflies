@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Amiani's Fly Wholesalers</title>
+<link rel="icon" href="logo.png">
+<meta name="description" content="Premium fishing flies wholesale supplier">
+
+<style>
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+font-family:Arial;
+}
+
+body{
+background:#f5f5f5;
+}
+
+/* HEADER */
+
+header{
+background:#0b3d2e;
+color:white;
+padding:15px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:sticky;
+top:0;
+z-index:999;
+}
+
+header h1{
+font-size:22px;
+}
+
+nav a{
+color:white;
+margin-left:20px;
+text-decoration:none;
+font-weight:bold;
+}
+
+/* CART ICON */
+
+.cart-icon{
+background:#fff;
+color:#0b3d2e;
+padding:6px 10px;
+border-radius:20px;
+font-weight:bold;
+}
+
+/* CATEGORY SECTION */
+
+.categories{
+text-align:center;
+padding:40px 20px;
+}
+
+.circle-grid{
+  display:flex;
+  gap:30px;
+  max-width:900px;
+  margin:auto;
+  margin-top:30px;
+  overflow-x:auto;     /* horizontal scroll on small screens */
+  flex-wrap:nowrap;    /* keep everything on one line */
+}
+
+.circle{
+  min-width:160px;     /* prevents shrinking */
+  flex:0 0 auto;
+}
+.circle{
+width:160px;
+height:160px;
+border-radius:50%;
+overflow:hidden;
+position:relative;
+margin:auto;
+cursor:pointer;
+}
+
+.circle img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:.3s;
+}
+
+.circle:hover img{
+transform:scale(1.1);
+}
+
+.circle span{
+position:absolute;
+bottom:10px;
+left:0;
+right:0;
+color:white;
+font-weight:bold;
+background:rgba(0,0,0,.5);
+padding:5px;
+}
+
+/* SEARCH */
+
+.search-bar{
+text-align:center;
+margin-top:20px;
+}
+
+.search-bar input,
+.search-bar select{
+padding:8px;
+margin:5px;
+}
+
+/* PRODUCTS */
+
+.catalog{
+text-align:center;
+padding:40px 20px;
+}
+
+#catalog{
+  display:flex;
+  gap:20px;
+  padding:40px;
+  max-width:1200px;
+  margin:auto;
+  overflow-x:auto;   /* enables horizontal scroll on small screens */
+  flex-wrap:nowrap;  /* forces one single row */
+}
+
+.product{
+  min-width:220px;   /* prevents shrinking */
+  flex:0 0 auto;     /* keeps fixed width */
+}
+
+.product{
+background:white;
+border-radius:10px;
+padding:15px;
+box-shadow:0 3px 10px rgba(0,0,0,.1);
+text-align:center;
+}
+
+.product img{
+width:100%;
+height:160px;
+object-fit:cover;
+border-radius:8px;
+transition:.3s;
+cursor:pointer;
+}
+
+.product img:hover{
+transform:scale(1.08);
+}
+
+.price{
+color:#0b3d2e;
+font-weight:bold;
+margin-top:5px;
+}
+
+button{
+background:#0b3d2e;
+color:white;
+border:none;
+padding:8px 12px;
+margin-top:8px;
+cursor:pointer;
+border-radius:5px;
+}
+
+/* CART */
+
+.cart{
+max-width:900px;
+margin:auto;
+padding:30px;
+}
+
+.cart-item{
+display:flex;
+justify-content:space-between;
+margin-bottom:6px;
+}
+
+/* ADMIN PANEL */
+
+.admin{
+max-width:500px;
+margin:auto;
+background:white;
+padding:20px;
+margin-top:30px;
+border-radius:10px;
+box-shadow:0 3px 10px rgba(0,0,0,.1);
+}
+
+.admin input,
+.admin select{
+width:100%;
+padding:8px;
+margin-top:8px;
+}
+
+footer{
+background:#0b3d2e;
+color:white;
+text-align:center;
+padding:15px;
+margin-top:40px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>Amiani's Fly Wholesalers</h1>
+
+<nav>
+
+<a href="#">Home</a>
+
+<span class="cart-icon">
+🛒 <span id="cartCount">0</span>
+</span>
+
+</nav>
+
+</header>
+<!-- SEARCH -->
+
+<div class="search-bar">
+
+<input id="search" placeholder="Search flies">
+
+<select id="typeFilter">
+
+<option value="">All Types</option>
+<option>Dry</option>
+<option>Nymph</option>
+<option>Streamer</option>
+<option>Lake</option>
+
+</select>
+
+<button onclick="renderProducts()">Filter</button>
+
+</div>
+
+
+
+<!-- CATEGORIES -->
+
+<section class="categories">
+
+<h2>Fly Categories</h2>
+
+<div class="circle-grid">
+
+<div class="circle" onclick="window.location.href='dryflies.html'">
+<img src="ClassicGreenDrake.avif">
+<span>Dry Flies</span>
+</div>
+
+<div class="circle" onclick="window.location.href='lakeflies.html'">
+<img src="BWOEmergerPink.avif">
+<span>Lake Flies</span>
+</div>
+
+<div class="circle" onclick="window.location.href='nymphs.html'">
+<img src="PMDLastChanceCripple.avif">
+<span>Nymphs</span>
+</div>
+
+<div class="circle" onclick="window.location.href='streamers.html'">
+<img src="Screenshot2024-12-16at7.02.04PM.avif">
+<span>Streamers</span>
+</div>
+
+<div class="circle" onclick="window.location.href='pikeflies.html'">
+<img src="StimulatorOrange.avif">
+<span>Pike Flies</span>
+</div>
+
+<div class="circle" onclick="window.location.href='assortments.html'">
+<img src="TheGreenDrake.avif">
+<span>Assortments</span>
+</div>
+
+<div class="circle" onclick="window.location.href='steelhead.html'">
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+<span>Steelhead/Salmon Flies</span>
+</div>
+</div>
+
+</section>
+
+
+<!-- PRODUCT CATALOG -->
+ <section class="catalog">
+ <h2>Popular Collections</h2>
+</section>
+<div id="catalog"></div>
+
+
+<!-- CART -->
+
+<section class="cart">
+
+<h2>Cart</h2>
+
+<div id="cartItems"></div>
+
+<p><b>Total: $<span id="total">0</span></b></p>
+
+<button onclick="mpesa()">Pay with M-Pesa</button>
+
+</section>
+
+
+<!-- ADMIN PANEL -->
+
+<section class="admin">
+
+<h3>Admin: Upload Fly</h3>
+
+<input id="name" placeholder="Fly name">
+
+<input id="price" placeholder="Price">
+
+<input id="inventory" placeholder="Stock">
+
+<select id="type">
+
+<option>Dry</option>
+<option>Nymph</option>
+<option>Streamer</option>
+<option>Lake</option>
+
+</select>
+
+<button onclick="addFly()">Add Fly</button>
+
+</section>
+
+
+<footer>
+
+© 2026 Amiani's Fly Wholesalers
+
+</footer>
+
+
+<script>
+
+/* FLY DATABASE */
+
+let flies=[
+
+{
+name:"Adams Dry Fly",
+type:"Dry",
+price:1.5,
+inventory:200,
+image:"https://images.unsplash.com/photo-1560275619-4662e36fa65c"
+},
+
+{
+name:"Pheasant Tail Nymph",
+type:"Nymph",
+price:1.6,
+inventory:180,
+image:"https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
+},
+
+{
+name:"Woolly Bugger",
+type:"Streamer",
+price:1.8,
+inventory:300,
+image:"https://images.unsplash.com/photo-1493558103817-58b2924bce98"
+},
+
+{
+name:"Chironomid Lake Fly",
+type:"Lake",
+price:1.7,
+inventory:150,
+image:"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"
+}
+
+]
+
+let cart=[]
+let total=0
+
+
+/* RENDER PRODUCTS */
+
+function renderProducts(){
+
+let catalog=document.getElementById("catalog")
+catalog.innerHTML=""
+
+let search=document.getElementById("search").value.toLowerCase()
+let type=document.getElementById("typeFilter").value
+
+flies.forEach((fly,i)=>{
+
+if(search && !fly.name.toLowerCase().includes(search)) return
+if(type && fly.type!=type) return
+
+catalog.innerHTML+=`
+
+<div class="product">
+
+<img src="${fly.image}" onclick="alert('${fly.name}')">
+
+<h3>${fly.name}</h3>
+
+<p>Type: ${fly.type}</p>
+
+<p>Stock: ${fly.inventory}</p>
+
+<p class="price">$${fly.price}</p>
+
+<button onclick="addToCart(${i})">Add To Cart</button>
+
+</div>
+
+`
+
+})
+
+}
+
+/* FILTER FROM CIRCLE */
+
+function filterType(t){
+
+document.getElementById("typeFilter").value=t
+
+renderProducts()
+
+window.scrollTo({top:300,behavior:"smooth"})
+
+}
+
+
+/* ADD TO CART */
+
+function addToCart(i){
+
+let fly=flies[i]
+
+cart.push(fly)
+
+total+=fly.price
+
+document.getElementById("cartCount").innerText=cart.length
+
+document.getElementById("total").innerText=total.toFixed(2)
+
+let cartItems=document.getElementById("cartItems")
+
+cartItems.innerHTML+=`
+
+<div class="cart-item">
+
+<span>${fly.name}</span>
+
+<span>$${fly.price}</span>
+
+</div>
+
+`
+
+}
+
+
+/* WHOLESALE PRICE */
+
+function wholesalePrice(qty,price){
+
+if(qty>=100) return price*0.65
+if(qty>=12) return price*0.8
+return price
+
+}
+
+
+/* MPESA */
+
+function mpesa(){
+
+alert("Pay via M-Pesa Paybill 123456\nAccount: FlyShop")
+
+}
+
+
+/* ADMIN ADD FLY */
+
+function addFly(){
+
+let newFly={
+
+name:document.getElementById("name").value,
+
+price:parseFloat(document.getElementById("price").value),
+
+inventory:parseInt(document.getElementById("inventory").value),
+
+type:document.getElementById("type").value,
+
+image:"https://images.unsplash.com/photo-1560275619-4662e36fa65c"
+
+}
+
+flies.push(newFly)
+
+renderProducts()
+
+alert("Fly added")
+
+}
+
+
+/* INITIAL LOAD */
+
+renderProducts()
+
+</script>
+
+</body>
+</html>
