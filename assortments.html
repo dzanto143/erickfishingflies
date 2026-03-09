@@ -226,15 +226,13 @@ footer{background:#0b3d2e;color:#fff;text-align:center;padding:15px;margin-top:4
 
     <ul id="navMenu">
       <li><a href="index.html"><img src="https://img.icons8.com/ios-filled/50/ffffff/home.png" class="home-icon"/></a></li>
-      <li><a href="#products">Flies</a></li>
       <li><a href="cart.html">Cart</a></li>
-      <li><a href="#reviews">Reviews</a></li>
       <li><input type="text" id="searchInput" placeholder="Search flies..." onkeyup="searchFlies()"></li>
     </ul>
   </div>
 </header>
 <!-- WhatsApp Chat Button -->
-<a href="https://wa.me/254712345678" class="whatsapp-chat" target="_blank">
+<a href="https://wa.me/254799028055" class="whatsapp-chat" target="_blank">
   💬 Chat With Us
 </a>
 
@@ -297,14 +295,12 @@ function toggleMenu(){ document.getElementById("navMenu").classList.toggle("acti
 
 // PRODUCTS DATA
 const products = [
-{ image: "adams.jpg",name:"Dry Fly Assortment", desc:".", price:3.5, Type:["Mayfly Patterns","Caddisfly Patterns", "Midge Patterns","Terrestrial Patterns","Adult Stonefly Patterns","Adams / General Attractor Patterns","Parachute Patterns","Emerger Patterns"], sizes:["10","12","14","16","18","20"], colors:["Natural Mix","Bright Mix","UV Mix","Dark Water Mix", "Clear Water Mix","Seasonal Blend"] },
-{ image: "Blue Winged Olive (BWO).jpg",name:"Nymph Assortment", desc:".", price:3.5, Type:["Mayfly Nymphs", "Caddisfly Larvae / Pupa", "Stonefly Nymphs","Midge / Chironomid Patterns","Scud / Amphipod Patterns","Terrestrial Nymphs","Weighted / Jig Nymphs","Emerging / Soft Hackle Nymphs"], sizes:["10","12","14","16","18","20"], colors:["Natural Mix","Bright Mix","UV Mix","Dark Water Mix", "Clear Water Mix","Seasonal Blend"] },
-{ image: "Elk Hair Caddis.jpg",name:"Streamer Assortment", desc:".", price:3.5, Type:["Woolly Bugger","Clouser Minnow","Deceiver","Zonker / Bunny Streamers","Sculpin Patterns","Tube Flies","Articulated Streamers","Saltwater / Large Streamers"], sizes:["10","12","14","16","18","20"], colors:["Natural Mix","Bright Mix","UV Mix","Dark Water Mix", "Clear Water Mix","Seasonal Blend"] },
-{ image: "Royal Wulff.jpg",name:"Lake Fly Assortment", desc:".", price:3.5, Type:["Midge / Chironomid Patterns","Pupa / Emerging Patterns","Nymph Patterns","Dry Flies","Streamer Patterns","Leech Patterns","Baitfish / Crayfish Patterns","Egg Patterns / Glo Bugs"], sizes:["10","12","14","16","18","20"], colors:["Natural Mix","Bright Mix","UV Mix","Dark Water Mix", "Clear Water Mix","Seasonal Blend"] },
-{ image: "Stimulator.jpg",name:"Salmon / Steelhead Assortment", desc:".", price:3.5, Type:["Intruder Flies","Spey Flies","Deceivers","Clouser Minnows","Woolly Buggers / Zonkers / Bunny Flies","Egg Patterns / Glo Bugs","Shrimp / Crustacean Patterns","Weighted / Conehead Streamers"], sizes:["10","12","14","16","18","20"], colors:["Natural Mix","Bright Mix","UV Mix","Dark Water Mix", "Clear Water Mix","Seasonal Blend"] },
-{ image: "Mayfly Patte.jpg",name:"Pike Assortment", desc:".",  price:3.5, Type:["Bunny / Rabbit Strips","Deceivers / Large Streamers","Woolly Bugger / Zonker","Sculpin / Baitfish Patterns","Tube Flies","Articulated Flies","Leech / Soft Material Patterns","Saltwater / Hybrid Patterns"], sizes:["10","12","14","16","18","20"], colors:["Natural Mix","Bright Mix","UV Mix","Dark Water Mix", "Clear Water Mix","Seasonal Blend"] },
-{ image: "Mosquito.jpg",name:"Beginner Starter Kits", desc:".", price:3.5, Type:["Trout Starter Kits","Panfish / Bass Starter Kits","Salmon / Steelhead Starter Kits","Pike / Large Predator Starter Kits","Saltwater Starter Kits","All-Purpose Freshwater Kit","Nymph-Focused Starter Kit","Dry-Fly Focused Starter Kit"], sizes:["10","12","14","16","18","20"], colors:["Natural Mix","Bright Mix","UV Mix","Dark Water Mix", "Clear Water Mix","Seasonal Blend"] },
-{ image: "Mosquito.jpg",name:"Mixed Seasonal Packs", desc:".", price:3.5, Type:["Spring Hatch Pack","Summer Terrestrial Pack","Autumn / Fall Pack","Winter / Off-Season Pack","All-Season / Year-Round Pack","Salmon & Steelhead Seasonal Pack","Mixed Lake & Stream Seasonal Pack"], sizes:["10","12","14","16","18","20"], colors:["Natural Mix","Bright Mix","UV Mix","Dark Water Mix", "Clear Water Mix","Seasonal Blend"] },
+{ image: "Dry Fly Assortment.webp",name:"Dry Fly Assortment", desc:".", price:3.5, Type:["Mayfly Patterns","Caddisfly Patterns", "Midge Patterns","Terrestrial Patterns","Adult Stonefly Patterns","Adams / General Attractor Patterns","Parachute Patterns","Emerger Patterns"], sizes:["10","12","14","16","18","20"], colors:["Natural Mix","Bright Mix","UV Mix","Dark Water Mix", "Clear Water Mix","Seasonal Blend"] },
+{ image: "Nymph Assortment.webp",name:"Nymph Assortment", desc:".", price:3.5, Type:["Mayfly Nymphs", "Caddisfly Larvae / Pupa", "Stonefly Nymphs","Midge / Chironomid Patterns","Scud / Amphipod Patterns","Terrestrial Nymphs","Weighted / Jig Nymphs","Emerging / Soft Hackle Nymphs"], sizes:["10","12","14","16","18","20"], colors:["Natural Mix","Bright Mix","UV Mix","Dark Water Mix", "Clear Water Mix","Seasonal Blend"] },
+{ image: "Streamer Assortment.webp",name:"Streamer Assortment", desc:".", price:3.5, Type:["Woolly Bugger","Clouser Minnow","Deceiver","Zonker / Bunny Streamers","Sculpin Patterns","Tube Flies","Articulated Streamers","Saltwater / Large Streamers"], sizes:["10","12","14","16","18","20"], colors:["Natural Mix","Bright Mix","UV Mix","Dark Water Mix", "Clear Water Mix","Seasonal Blend"] },
+{ image: "Lake Fly Assortment.jpg",name:"Lake Fly Assortment", desc:".", price:3.5, Type:["Midge / Chironomid Patterns","Pupa / Emerging Patterns","Nymph Patterns","Dry Flies","Streamer Patterns","Leech Patterns","Baitfish / Crayfish Patterns","Egg Patterns / Glo Bugs"], sizes:["10","12","14","16","18","20"], colors:["Natural Mix","Bright Mix","UV Mix","Dark Water Mix", "Clear Water Mix","Seasonal Blend"] },
+{ image: "Salmon Steelhead Assortment.webp",name:"Salmon / Steelhead Assortment", desc:".", price:3.5, Type:["Intruder Flies","Spey Flies","Deceivers","Clouser Minnows","Woolly Buggers / Zonkers / Bunny Flies","Egg Patterns / Glo Bugs","Shrimp / Crustacean Patterns","Weighted / Conehead Streamers"], sizes:["10","12","14","16","18","20"], colors:["Natural Mix","Bright Mix","UV Mix","Dark Water Mix", "Clear Water Mix","Seasonal Blend"] },
+{ image: "Pike Assortment.webp",name:"Pike Assortment", desc:".",  price:3.5, Type:["Bunny / Rabbit Strips","Deceivers / Large Streamers","Woolly Bugger / Zonker","Sculpin / Baitfish Patterns","Tube Flies","Articulated Flies","Leech / Soft Material Patterns","Saltwater / Hybrid Patterns"], sizes:["10","12","14","16","18","20"], colors:["Natural Mix","Bright Mix","UV Mix","Dark Water Mix", "Clear Water Mix","Seasonal Blend"] },
 ];
 
 const productList = document.getElementById("productList");

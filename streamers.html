@@ -226,15 +226,13 @@ footer{background:#0b3d2e;color:#fff;text-align:center;padding:15px;margin-top:4
 
     <ul id="navMenu">
       <li><a href="index.html"><img src="https://img.icons8.com/ios-filled/50/ffffff/home.png" class="home-icon"/></a></li>
-      <li><a href="#products">Flies</a></li>
       <li><a href="cart.html">Cart</a></li>
-      <li><a href="#reviews">Reviews</a></li>
       <li><input type="text" id="searchInput" placeholder="Search flies..." onkeyup="searchFlies()"></li>
     </ul>
   </div>
 </header>
 <!-- WhatsApp Chat Button -->
-<a href="https://wa.me/254712345678" class="whatsapp-chat" target="_blank">
+<a href="https://wa.me/254799028055" class="whatsapp-chat" target="_blank">
   💬 Chat With Us
 </a>
 
@@ -297,14 +295,14 @@ function toggleMenu(){ document.getElementById("navMenu").classList.toggle("acti
 
 // PRODUCTS DATA
 const products = [
-{ image: "adams.jpg",name:"Woolly Bugger", desc:".", price:3.5, Type:["Standard Woolly Bugger","Beadhead Woolly Bugger", "Conehead Woolly Bugger","Crystal Woolly Bugger","Rubber-Leg Woolly Bugger","Sparkle Woolly Bugger","Balanced Woolly Bugger","Mini Woolly Bugger"], sizes:["10","12","14","16","18","20"], colors:["Black","Olive","White","Yellow", "Brown","Red","Orange","Chartreuse","Red & White","Fire Tiger","Purple"] },
-{ image: "Blue Winged Olive (BWO).jpg",name:"Zonker", desc:".", price:3.5, Type:["Standard Zonker", "Beadhead Zonker", "Zonker Streamer","Flash Zonker","Double Zonker","Zonker Leech","Zonker Jig","Mini Zonker"], sizes:["10","12","14","16","18","20"], colors:["Black","Olive","White","Yellow", "Brown","Red","Orange","Chartreuse","Red & White","Fire Tiger","Purple"] },
-{ image: "Elk Hair Caddis.jpg",name:"Muddler Minnow", desc:".", price:3.5, Type:["Original Muddler Minnow","Conehead Muddler","Double Muddler Minnow","Marabou Muddler","Black Muddler","White Muddler Minnow","Zonker Muddler","Muddler Dry (Floating Muddler)"], sizes:["10","12","14","16","18","20"], colors:["Black","Olive","White","Yellow", "Brown","Red","Orange","Chartreuse","Red & White","Fire Tiger","Purple"] },
-{ image: "Royal Wulff.jpg",name:"Clouser Minnow", desc:".", price:3.5, Type:["Classic Clouser Minnow","Flash Clouser","Bucktail Clouser","Craft Fur Clouser","Deep Clouser","Clouser Crayfish","Saltwater Clouser","Mini Clouser"], sizes:["10","12","14","16","18","20"], colors:["Black","Olive","White","Yellow", "Brown","Red","Orange","Chartreuse","Red & White","Fire Tiger","Purple"] },
-{ image: "Stimulator.jpg",name:"Matuka", desc:".", price:3.5, Type:["Classic Matuka","Beadhead Matuka","Flash Matuka","Zonker Matuka","Marabou Matuka","Sculpin Matuka","Saltwater Matuka","Mini Matuka"], sizes:["10","12","14","16","18","20"], colors:["Black","Olive","White","Yellow", "Brown","Red","Orange","Chartreuse","Red & White","Fire Tiger","Purple"] },
-{ image: "Mayfly Patte.jpg",name:"Deceiver", desc:".",  price:3.5, Type:["Classic Deceiver","Flash Deceiver","Half & Half","Seaducer","Reverse Deceiver","Epoxy Deceiver","Bulkhead Deceiver","Mini Deceiver"], sizes:["10","12","14","16","18","20"], colors:["Black","Olive","White","Yellow", "Brown","Red","Orange","Chartreuse","Red & White","Fire Tiger","Purple"] },
-{ image: "Mosquito.jpg",name:"Sculpin Patterns", desc:".", price:3.5, Type:["Muddler Minnow","Woolly Sculpin","Zonker Sculpin","Sculpzilla","NearNuff Sculpin","Double Bunny Sculpin","Sculpin Helmet Fly","Matuka Sculpin"], sizes:["10","12","14","16","18","20"], colors:["Black","Olive","White","Yellow", "Brown","Red","Orange","Chartreuse","Red & White","Fire Tiger","Purple"] },
-{ image: "Beetles.jpg",name:"Baitfish Patterns", desc:".", price:3.5, Type:["Clouser Minnow","Deceiver","Lefty's Deceiver","Surf Candy","EP Baitfish","Murdich Minnow","Game Changer","Zonker"], sizes:["10","12","14","16","18","20"], colors:["Black","Olive","White","Yellow", "Brown","Red","Orange","Chartreuse","Red & White","Fire Tiger","Purple"] },
+{ image: "Woolly Bugger.jpg",name:"Woolly Bugger", desc:".", price:3.5, Type:["Standard Woolly Bugger","Beadhead Woolly Bugger", "Conehead Woolly Bugger","Crystal Woolly Bugger","Rubber-Leg Woolly Bugger","Sparkle Woolly Bugger","Balanced Woolly Bugger","Mini Woolly Bugger"], sizes:["10","12","14","16","18","20"], colors:["Black","Olive","White","Yellow", "Brown","Red","Orange","Chartreuse","Red & White","Fire Tiger","Purple"] },
+{ image: "Zonker.jpg",name:"Zonker", desc:".", price:3.5, Type:["Standard Zonker", "Beadhead Zonker", "Zonker Streamer","Flash Zonker","Double Zonker","Zonker Leech","Zonker Jig","Mini Zonker"], sizes:["10","12","14","16","18","20"], colors:["Black","Olive","White","Yellow", "Brown","Red","Orange","Chartreuse","Red & White","Fire Tiger","Purple"] },
+{ image: "Muddler Minnow.webp",name:"Muddler Minnow", desc:".", price:3.5, Type:["Original Muddler Minnow","Conehead Muddler","Double Muddler Minnow","Marabou Muddler","Black Muddler","White Muddler Minnow","Zonker Muddler","Muddler Dry (Floating Muddler)"], sizes:["10","12","14","16","18","20"], colors:["Black","Olive","White","Yellow", "Brown","Red","Orange","Chartreuse","Red & White","Fire Tiger","Purple"] },
+{ image: "Clouser Minnow.webp",name:"Clouser Minnow", desc:".", price:3.5, Type:["Classic Clouser Minnow","Flash Clouser","Bucktail Clouser","Craft Fur Clouser","Deep Clouser","Clouser Crayfish","Saltwater Clouser","Mini Clouser"], sizes:["10","12","14","16","18","20"], colors:["Black","Olive","White","Yellow", "Brown","Red","Orange","Chartreuse","Red & White","Fire Tiger","Purple"] },
+{ image: "Matuka.webp",name:"Matuka", desc:".", price:3.5, Type:["Classic Matuka","Beadhead Matuka","Flash Matuka","Zonker Matuka","Marabou Matuka","Sculpin Matuka","Saltwater Matuka","Mini Matuka"], sizes:["10","12","14","16","18","20"], colors:["Black","Olive","White","Yellow", "Brown","Red","Orange","Chartreuse","Red & White","Fire Tiger","Purple"] },
+{ image: "Deceiver.jpeg",name:"Deceiver", desc:".",  price:3.5, Type:["Classic Deceiver","Flash Deceiver","Half & Half","Seaducer","Reverse Deceiver","Epoxy Deceiver","Bulkhead Deceiver","Mini Deceiver"], sizes:["10","12","14","16","18","20"], colors:["Black","Olive","White","Yellow", "Brown","Red","Orange","Chartreuse","Red & White","Fire Tiger","Purple"] },
+{ image: "Sculpin Patterns.gif",name:"Sculpin Patterns", desc:".", price:3.5, Type:["Muddler Minnow","Woolly Sculpin","Zonker Sculpin","Sculpzilla","NearNuff Sculpin","Double Bunny Sculpin","Sculpin Helmet Fly","Matuka Sculpin"], sizes:["10","12","14","16","18","20"], colors:["Black","Olive","White","Yellow", "Brown","Red","Orange","Chartreuse","Red & White","Fire Tiger","Purple"] },
+{ image: "Baitfish Patterns.webp",name:"Baitfish Patterns", desc:".", price:3.5, Type:["Clouser Minnow","Deceiver","Lefty's Deceiver","Surf Candy","EP Baitfish","Murdich Minnow","Game Changer","Zonker"], sizes:["10","12","14","16","18","20"], colors:["Black","Olive","White","Yellow", "Brown","Red","Orange","Chartreuse","Red & White","Fire Tiger","Purple"] },
 ];
 
 const productList = document.getElementById("productList");

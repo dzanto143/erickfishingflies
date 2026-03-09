@@ -226,15 +226,13 @@ footer{background:#0b3d2e;color:#fff;text-align:center;padding:15px;margin-top:4
 
     <ul id="navMenu">
       <li><a href="index.html"><img src="https://img.icons8.com/ios-filled/50/ffffff/home.png" class="home-icon"/></a></li>
-      <li><a href="#products">Flies</a></li>
       <li><a href="cart.html">Cart</a></li>
-      <li><a href="#reviews">Reviews</a></li>
       <li><input type="text" id="searchInput" placeholder="Search flies..." onkeyup="searchFlies()"></li>
     </ul>
   </div>
 </header>
 <!-- WhatsApp Chat Button -->
-<a href="https://wa.me/254712345678" class="whatsapp-chat" target="_blank">
+<a href="https://wa.me/254799028055" class="whatsapp-chat" target="_blank">
   💬 Chat With Us
 </a>
 
@@ -297,13 +295,13 @@ function toggleMenu(){ document.getElementById("navMenu").classList.toggle("acti
 
 // PRODUCTS DATA
 const products = [
-{ image: "adams.jpg",name:"Large Deceivers", desc:".", price:3.5, Type:["Classic Large Deceiver","Flash Deceiver", "Bulkhead Deceiver","Reverse Deceiver","Half & Half","EP Deceiver","Articulated Deceiver","Tube Deceiver"], sizes:["10","12","14","16","18","20"], colors:["Chartreuse","Red & White","Black & Orange","Yellow", "Fire Tiger","Olive","Pink","White","UV Bright"] },
-{ image: "Blue Winged Olive (BWO).jpg",name:"Flash Streamers", desc:".", price:3.5, Type:["Flashabou Minnow", "Flash Clouser Minnow", "Flash Deceiver","Sparkle Minnow","Crystal Bugger","Flash Zonker","Surf Candy","Flash Game Changer"], sizes:["10","12","14","16","18","20"], colors:["Chartreuse","Red & White","Black & Orange","Yellow", "Fire Tiger","Olive","Pink","White","UV Bright"] },
-{ image: "Elk Hair Caddis.jpg",name:"Bunny Leech", desc:".", price:3.5, Type:["Standard Bunny Leech","Beadhead Bunny Leech","Conehead Bunny Leech","Double Bunny Leech","Flash Bunny Leech","Balanced Bunny Leech","Zonker Bunny Leech","Articulated Bunny Leech"], sizes:["10","12","14","16","18","20"], colors:["Chartreuse","Red & White","Black & Orange","Yellow", "Fire Tiger","Olive","Pink","White","UV Bright"] },
-{ image: "Royal Wulff.jpg",name:"Pike Bunny", desc:".", price:3.5, Type:["Standard Pike Bunny","Double Bunny Pike Fly","Flash Pike Bunny","Conehead Pike Bunny","Articulated Pike Bunny","Tube Pike Bunny","Bulkhead Pike Bunny","Weedless Pike Bunny"], sizes:["10","12","14","16","18","20"], colors:["Chartreuse","Red & White","Black & Orange","Yellow", "Fire Tiger","Olive","Pink","White","UV Bright"] },
-{ image: "Stimulator.jpg",name:"Double Barrel Flies", desc:".", price:3.5, Type:["Standard Double Barrel Streamer","Flash Double Barrel","Bunny Double Barrel","Articulated Double Barrel","Conehead Double Barrel","Bulkhead Double Barrel","Pike Double Barrel","Saltwater Double Barrel"], sizes:["10","12","14","16","18","20"], colors:["Chartreuse","Red & White","Black & Orange","Yellow", "Fire Tiger","Olive","Pink","White","UV Bright"] },
-{ image: "Mayfly Patte.jpg",name:"Tube Flies", desc:".",  price:3.5, Type:["Standard Tube Fly","Conehead Tube Fly","Templedog Tube Fly","Intruder Tube Fly","Zonker Tube Fly","Baitfish Tube Fly","Sculpin Tube Fly","Pike Tube Fly"], sizes:["10","12","14","16","18","20"], colors:["Chartreuse","Red & White","Black & Orange","Yellow", "Fire Tiger","Olive","Pink","White","UV Bright"] },
-{ image: "Mosquito.jpg",name:"Articulated Streamers", desc:".", price:3.5, Type:["Game Changer","Sex Dungeon","Drunk & Disorderly","Sculpzilla","Double Bunny","Articulated Woolly Bugger","Articulated Deceiver","Intruder Fly"], sizes:["10","12","14","16","18","20"], colors:["Chartreuse","Red & White","Black & Orange","Yellow", "Fire Tiger","Olive","Pink","White","UV Bright"] },
+{ image: "Large Deceivers.jpg",name:"Large Deceivers", desc:".", price:3.5, Type:["Classic Large Deceiver","Flash Deceiver", "Bulkhead Deceiver","Reverse Deceiver","Half & Half","EP Deceiver","Articulated Deceiver","Tube Deceiver"], sizes:["10","12","14","16","18","20"], colors:["Chartreuse","Red & White","Black & Orange","Yellow", "Fire Tiger","Olive","Pink","White","UV Bright"] },
+{ image: "Flash Streamers.webp",name:"Flash Streamers", desc:".", price:3.5, Type:["Flashabou Minnow", "Flash Clouser Minnow", "Flash Deceiver","Sparkle Minnow","Crystal Bugger","Flash Zonker","Surf Candy","Flash Game Changer"], sizes:["10","12","14","16","18","20"], colors:["Chartreuse","Red & White","Black & Orange","Yellow", "Fire Tiger","Olive","Pink","White","UV Bright"] },
+{ image: "Bunny Leech.jpg",name:"Bunny Leech", desc:".", price:3.5, Type:["Standard Bunny Leech","Beadhead Bunny Leech","Conehead Bunny Leech","Double Bunny Leech","Flash Bunny Leech","Balanced Bunny Leech","Zonker Bunny Leech","Articulated Bunny Leech"], sizes:["10","12","14","16","18","20"], colors:["Chartreuse","Red & White","Black & Orange","Yellow", "Fire Tiger","Olive","Pink","White","UV Bright"] },
+{ image: "Pike Bunny.jpg",name:"Pike Bunny", desc:".", price:3.5, Type:["Standard Pike Bunny","Double Bunny Pike Fly","Flash Pike Bunny","Conehead Pike Bunny","Articulated Pike Bunny","Tube Pike Bunny","Bulkhead Pike Bunny","Weedless Pike Bunny"], sizes:["10","12","14","16","18","20"], colors:["Chartreuse","Red & White","Black & Orange","Yellow", "Fire Tiger","Olive","Pink","White","UV Bright"] },
+{ image: "Double Barrel Flies.jpg",name:"Double Barrel Flies", desc:".", price:3.5, Type:["Standard Double Barrel Streamer","Flash Double Barrel","Bunny Double Barrel","Articulated Double Barrel","Conehead Double Barrel","Bulkhead Double Barrel","Pike Double Barrel","Saltwater Double Barrel"], sizes:["10","12","14","16","18","20"], colors:["Chartreuse","Red & White","Black & Orange","Yellow", "Fire Tiger","Olive","Pink","White","UV Bright"] },
+{ image: "Tube Flies.jpg",name:"Tube Flies", desc:".",  price:3.5, Type:["Standard Tube Fly","Conehead Tube Fly","Templedog Tube Fly","Intruder Tube Fly","Zonker Tube Fly","Baitfish Tube Fly","Sculpin Tube Fly","Pike Tube Fly"], sizes:["10","12","14","16","18","20"], colors:["Chartreuse","Red & White","Black & Orange","Yellow", "Fire Tiger","Olive","Pink","White","UV Bright"] },
+{ image: "Articulated Streamers.jpg",name:"Articulated Streamers", desc:".", price:3.5, Type:["Game Changer","Sex Dungeon","Drunk & Disorderly","Sculpzilla","Double Bunny","Articulated Woolly Bugger","Articulated Deceiver","Intruder Fly"], sizes:["10","12","14","16","18","20"], colors:["Chartreuse","Red & White","Black & Orange","Yellow", "Fire Tiger","Olive","Pink","White","UV Bright"] },
 ];
 
 const productList = document.getElementById("productList");

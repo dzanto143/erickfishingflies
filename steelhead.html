@@ -226,15 +226,13 @@ footer{background:#0b3d2e;color:#fff;text-align:center;padding:15px;margin-top:4
 
     <ul id="navMenu">
       <li><a href="index.html"><img src="https://img.icons8.com/ios-filled/50/ffffff/home.png" class="home-icon"/></a></li>
-      <li><a href="#products">Flies</a></li>
       <li><a href="cart.html">Cart</a></li>
-      <li><a href="#reviews">Reviews</a></li>
       <li><input type="text" id="searchInput" placeholder="Search flies..." onkeyup="searchFlies()"></li>
     </ul>
   </div>
 </header>
 <!-- WhatsApp Chat Button -->
-<a href="https://wa.me/254712345678" class="whatsapp-chat" target="_blank">
+<a href="https://wa.me/254799028055" class="whatsapp-chat" target="_blank">
   💬 Chat With Us
 </a>
 
@@ -297,14 +295,14 @@ function toggleMenu(){ document.getElementById("navMenu").classList.toggle("acti
 
 // PRODUCTS DATA
 const products = [
-{ image: "adams.jpg",name:"Intruders", desc:".", price:3.5, Type:["Classic Intruder","Mini Intruder", "Tube Intruder","Flash Intruder","Conehead Intruder","Beadhead Intruder","Composite Loop Intruder","Articulated Intruder"], sizes:["10","12","14","16","18","20"], colors:["Pink","Orange","Red","Purple", "Blue","Black","Chartreuse","Flame","Natural"] },
-{ image: "Blue Winged Olive (BWO).jpg",name:"Spey Flies", desc:".", price:3.5, Type:["Classic Spey", "Tube Spey", "Intruder-Style Spey","Woolly Spey","Marabou Spey","Sparkle Spey","Mini Spey","Saltwater Spey"], sizes:["10","12","14","16","18","20"], colors:["Pink","Orange","Red","Purple", "Blue","Black","Chartreuse","Flame","Natural"] },
-{ image: "Elk Hair Caddis.jpg",name:"Egg Patterns", desc:".", price:3.5, Type:["Single Egg","Cluster Egg","Sewn Egg","Beadhead Egg","Yarn Egg","Sili-Egg / Soft Plastic Egg","Glow Egg","Weighted Egg"], sizes:["10","12","14","16","18","20"], colors:["Pink","Orange","Red","Purple", "Blue","Black","Chartreuse","Flame","Natural"] },
-{ image: "Royal Wulff.jpg",name:"Glo Bugs", desc:".", price:3.5, Type:["Standard Glo Bug","Single Glo Bug","Clustered Glo Bug","Weighted Glo Bug","Glow / Fluorescent Glo Bug","Sewn Glo Bug","Glo Bug on a Dropper","Mini Glo Bug"], sizes:["10","12","14","16","18","20"], colors:["Pink","Orange","Red","Purple", "Blue","Black","Chartreuse","Flame","Natural"] },
-{ image: "Stimulator.jpg",name:"Comets", desc:".", price:3.5, Type:["Standard Comet","Flash Comet","Mini Comet","Weighted Comet","Double Comet","Saltwater Comet","Marabou Comet","Tube Comet"], sizes:["10","12","14","16","18","20"], colors:["Pink","Orange","Red","Purple", "Blue","Black","Chartreuse","Flame","Natural"] },
-{ image: "Mayfly Patte.jpg",name:"Temple Dog", desc:".",  price:3.5, Type:["Classic Templedog","Tube Templedog","Intruder-Style Templedog","Marabou Templedog","Flash Templedog","Weighted Templedog","Mini Templedog","Saltwater Templedog"], sizes:["10","12","14","16","18","20"], colors:["Pink","Orange","Red","Purple", "Blue","Black","Chartreuse","Flame","Natural"] },
-{ image: "Mosquito.jpg",name:"Shrimp Patterns", desc:".", price:3.5, Type:["Clouser Shrimp","EP Shrimp","Crazy Charlie","Gotcha Shrimp","Shrimp Streamer","Crab & Shrimp Hybrid","Marabou Shrimp","Weighted / Beadhead Shrimp"], sizes:["10","12","14","16","18","20"], colors:["Pink","Orange","Red","Purple", "Blue","Black","Chartreuse","Flame","Natural"] },
-{ image: "Mosquito.jpg",name:"Tube Flies", desc:".", price:3.5, Type:["Standard Tube Fly","Tube Deceiver","Tube Clouser Minnow","Tube Bunny / Bunny Tube Fly","Intruder Tube Fly","Tube Sculpin","Weighted / Conehead Tube Fly","Saltwater Tube Flyy"], sizes:["10","12","14","16","18","20"], colors:["Pink","Orange","Red","Purple", "Blue","Black","Chartreuse","Flame","Natural"] },
+{ image: "Intruders.webp",name:"Intruders", desc:".", price:3.5, Type:["Classic Intruder","Mini Intruder", "Tube Intruder","Flash Intruder","Conehead Intruder","Beadhead Intruder","Composite Loop Intruder","Articulated Intruder"], sizes:["10","12","14","16","18","20"], colors:["Pink","Orange","Red","Purple", "Blue","Black","Chartreuse","Flame","Natural"] },
+{ image: "Spey Flies.jpg",name:"Spey Flies", desc:".", price:3.5, Type:["Classic Spey", "Tube Spey", "Intruder-Style Spey","Woolly Spey","Marabou Spey","Sparkle Spey","Mini Spey","Saltwater Spey"], sizes:["10","12","14","16","18","20"], colors:["Pink","Orange","Red","Purple", "Blue","Black","Chartreuse","Flame","Natural"] },
+{ image: "Egg Patterns.jpg",name:"Egg Patterns", desc:".", price:3.5, Type:["Single Egg","Cluster Egg","Sewn Egg","Beadhead Egg","Yarn Egg","Sili-Egg / Soft Plastic Egg","Glow Egg","Weighted Egg"], sizes:["10","12","14","16","18","20"], colors:["Pink","Orange","Red","Purple", "Blue","Black","Chartreuse","Flame","Natural"] },
+{ image: "Glo Bugs.webp",name:"Glo Bugs", desc:".", price:3.5, Type:["Standard Glo Bug","Single Glo Bug","Clustered Glo Bug","Weighted Glo Bug","Glow / Fluorescent Glo Bug","Sewn Glo Bug","Glo Bug on a Dropper","Mini Glo Bug"], sizes:["10","12","14","16","18","20"], colors:["Pink","Orange","Red","Purple", "Blue","Black","Chartreuse","Flame","Natural"] },
+{ image: "Comets.jpg",name:"Comets", desc:".", price:3.5, Type:["Standard Comet","Flash Comet","Mini Comet","Weighted Comet","Double Comet","Saltwater Comet","Marabou Comet","Tube Comet"], sizes:["10","12","14","16","18","20"], colors:["Pink","Orange","Red","Purple", "Blue","Black","Chartreuse","Flame","Natural"] },
+{ image: "Temple Dog.webp",name:"Temple Dog", desc:".",  price:3.5, Type:["Classic Templedog","Tube Templedog","Intruder-Style Templedog","Marabou Templedog","Flash Templedog","Weighted Templedog","Mini Templedog","Saltwater Templedog"], sizes:["10","12","14","16","18","20"], colors:["Pink","Orange","Red","Purple", "Blue","Black","Chartreuse","Flame","Natural"] },
+{ image: "Shrimp Patterns.jpg",name:"Shrimp Patterns", desc:".", price:3.5, Type:["Clouser Shrimp","EP Shrimp","Crazy Charlie","Gotcha Shrimp","Shrimp Streamer","Crab & Shrimp Hybrid","Marabou Shrimp","Weighted / Beadhead Shrimp"], sizes:["10","12","14","16","18","20"], colors:["Pink","Orange","Red","Purple", "Blue","Black","Chartreuse","Flame","Natural"] },
+{ image: "Tube Flies.jpg",name:"Tube Flies", desc:".", price:3.5, Type:["Standard Tube Fly","Tube Deceiver","Tube Clouser Minnow","Tube Bunny / Bunny Tube Fly","Intruder Tube Fly","Tube Sculpin","Weighted / Conehead Tube Fly","Saltwater Tube Flyy"], sizes:["10","12","14","16","18","20"], colors:["Pink","Orange","Red","Purple", "Blue","Black","Chartreuse","Flame","Natural"] },
 ];
 
 const productList = document.getElementById("productList");
