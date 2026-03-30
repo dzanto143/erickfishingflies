@@ -42,7 +42,17 @@ header{background:#0b3d2e;color:#fff;padding:15px;}
 /* CARD */
 .card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.08);transition:0.3s;padding-bottom:15px;}
 .card:hover{transform:translateY(-8px);box-shadow:0 10px 20px rgba(0,0,0,0.15);}
-.card img{width:100%;height:200px;object-fit:cover;}
+.card img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  cursor:pointer;
+  transition:transform 0.4s ease;
+}
+
+.card img:hover{
+  transform:scale(1.15);
+}
 .card-content{padding:15px;}
 .card h3{margin-bottom:8px;}
 .card p{font-size:14px;color:#555;margin-bottom:10px;}
@@ -156,6 +166,28 @@ select,input{width:100%;padding:8px;margin:8px 0;border-radius:5px;border:1px so
   background:#0b3d2e;
 }
 
+.product-links{
+  display:flex;
+  overflow-x:auto;
+  gap:10px;
+  padding:10px 0;
+  margin-bottom:20px;
+}
+
+.product-links button{
+  white-space:nowrap;
+  padding:8px 15px;
+  border:none;
+  background:#0b3d2e;
+  color:#fff;
+  border-radius:20px;
+  cursor:pointer;
+}
+
+.product-links button:hover{
+  background:#145c46;
+}
+
 /* WHATSAPP FLOATING BUTTON */
 .whatsapp-chat{
   position: fixed;
@@ -208,6 +240,57 @@ select,input{width:100%;padding:8px;margin:8px 0;border-radius:5px;border:1px so
   transform:scale(1.05);
 }
 
+/* LAYOUT */
+.shop-layout{
+  display:flex;
+  gap:20px;
+  align-items:flex-start;
+}
+
+/* LEFT SIDE */
+.sidebar{
+  width:220px;
+  min-width:200px;
+}
+
+/* MAKE PRODUCT LIST VERTICAL */
+.product-links{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.product-links button{
+  width:100%;
+  text-align:left;
+  border-radius:6px;
+  padding:10px;
+}
+
+/* RIGHT SIDE */
+.main-content{
+  flex:1;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .shop-layout{
+    flex-direction:column;
+  }
+
+  .sidebar{
+    width:100%;
+  }
+
+  .product-links{
+    flex-direction:row;
+    overflow-x:auto;
+  }
+
+  .product-links button{
+    white-space:nowrap;
+  }
+}
 /* FOOTER */
 footer{background:#0b3d2e;color:#fff;text-align:center;padding:15px;margin-top:40px;}
 </style>
@@ -238,20 +321,21 @@ footer{background:#0b3d2e;color:#fff;text-align:center;padding:15px;margin-top:4
 
 
 <div class="container">
-<h2>Fishing Flies Collection</h2><br>
-<!-- CATEGORY BAR -->
 
+  <div class="shop-layout">
+
+    <!-- LEFT SIDEBAR -->
 <div class="category-bar">
-  <button onclick="openCategory('dryflies.html')">Dry Flies</button>
-  <button onclick="openCategory('streamers.html')">Streamers</button>
-  <button onclick="openCategory('steelhead.html')">Steelhead</button>
-  <button onclick="openCategory('pikeflies.html')">Pike Flies</button>
-  <button onclick="openCategory('nymphs.html')">Nymphs</button>
-  <button onclick="openCategory('lakeflies.html')">Lake Flies</button>
-  <button onclick="openCategory('assortments.html')">Assortments</button>
+   <div class="product-links" id="productLinks"></div>
 </div>
 
-<div class="products" id="productList"></div>
+    <!-- RIGHT CONTENT -->
+    <div class="main-content">
+      <h2>Fishing Flies Collection</h2><br>
+      <div class="products" id="productList"></div>
+    </div>
+
+  </div>
 
 <!-- CART SECTION -->
 <section class="cart" id="cartSection">
@@ -264,26 +348,45 @@ footer{background:#0b3d2e;color:#fff;text-align:center;padding:15px;margin-top:4
 </section>
 </div>
 
+<!-- PRODUCT LINKS BAR -->
+<div class="product-links" id="productLinks"></div>
+
+
 <!-- PRODUCT MODAL -->
 <div class="modal" id="productModal">
-  <div class="modal-content">
+  <div class="modal-content" style="display:flex; flex-direction:row; gap:20px; max-width:800px;">
     <span class="close" onclick="closeModal()">&times;</span>
-    <img id="modalImage">
-    <h3 id="modalTitle"></h3>
-    <p id="modalDesc"></p>
-    <p class="price" id="modalPrice"></p>
-    <label>Type</label>
-    <select id="modalType"></select>
-    <label>Size</label>
-    <select id="modalSize"></select>
-    <label>Color</label>
-    <select id="modalColor"></select>
-    <label>Quantity</label>
-    <input type="number" id="modalQty" min="1" value="1">
-    <button onclick="addToCartModal()">Add to Cart</button>
-    <button class="buy-now" onclick="buyNowModal()">Buy Now</button>
+    
+    <!-- LEFT: Zoomed Image -->
+    <div style="flex:1;">
+      <img id="modalImage" style="width:100%; height:auto; border-radius:10px;">
+    </div>
+
+    <!-- RIGHT: Product Info -->
+    <div style="flex:1; display:flex; flex-direction:column; gap:10px;">
+      <h3 id="modalTitle"></h3>
+      <p id="modalDesc"></p>
+      <p class="price" id="modalPrice"></p>
+
+      <label>Type</label>
+      <select id="modalType"></select>
+
+      <label>Size</label>
+      <select id="modalSize"></select>
+
+      <label>Color</label>
+      <select id="modalColor"></select>
+
+      <label>Quantity</label>
+      <input type="number" id="modalQty" min="1" value="1">
+
+      <button onclick="addToCartModal()">Add to Cart</button>
+      <button class="buy-now" onclick="buyNowModal()">Buy Now</button>
+      <button style="background:#ff4d4d;" onclick="removeFromCartModal()">Remove from Cart</button>
+    </div>
   </div>
 </div>
+
 
 <footer>
 © 2026 Fishing Flies Shop
@@ -317,21 +420,47 @@ let currentProductIndex = null;
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 // RENDER PRODUCTS
-products.forEach((p,index)=>{
-  const card = document.createElement("div");
-  card.className="card";
-card.innerHTML=`
-  <div class="card-content">
-    <img src="${p.image}" onclick="viewProduct(${index})" style="cursor:pointer">
-    <h3>${p.name}</h3>
-    <p>${p.desc.substring(0,50)}...</p>
-    <div class="price">USD ${p.price}</div>
-    <button onclick="viewProduct(${index})">View</button>
-  </div>
-`;
-  productList.appendChild(card);
-});
+function renderProducts(filteredProducts){
+  productList.innerHTML = "";
 
+  filteredProducts.forEach((p,index)=>{
+    const card = document.createElement("div");
+    card.className="card";
+
+    card.innerHTML = `
+      <div class="card-content">
+        <img src="${p.image}" onclick="viewProduct(${products.indexOf(p)})">
+        <h3>${p.name}</h3>
+        <p>${p.desc.substring(0,50)}...</p>
+        <div class="price">USD ${p.price}</div>
+
+        <!-- Size & Color hidden initially -->
+        <div id="options-${index}" style="display:none; margin-top:5px;">
+          <select id="size-${index}">
+            <option value="">Choose Size</option>
+            ${p.sizes.map(s=>`<option>${s}</option>`).join("")}
+          </select>
+
+          <select id="color-${index}">
+            <option value="">Choose Color</option>
+            ${p.colors.map(c=>`<option>${c}</option>`).join("")}
+          </select>
+        </div>
+
+        <div style="display:flex; gap:5px; align-items:center; margin:5px 0;">
+          <button onclick="decreaseQty(${index})">-</button>
+          <input type="number" id="qty-${index}" value="1" min="1" style="width:50px; text-align:center;">
+          <button onclick="increaseQty(${index})">+</button>
+        </div>
+
+        <button onclick="toggleOptions(${index})">Choose Size & Color</button>
+        <button onclick="addToCart(${index})">Add to Cart</button>
+      </div>
+    `;
+
+    productList.appendChild(card);
+  });
+}
 // VIEW PRODUCT
 function viewProduct(index){
   currentProductIndex = index;
@@ -340,7 +469,7 @@ function viewProduct(index){
   document.getElementById("modalDesc").innerText = p.desc;
   document.getElementById("modalPrice").innerText = "USD " + p.price;
   document.getElementById("modalImage").src = p.image;
-   if(p.Type && p.Type.length > 0){
+  if(p.Type && p.Type.length > 0){
     document.getElementById("modalType").innerHTML = `<option value="">Select Type</option>` +
       p.Type.map((t,i)=>`<option ${i===0 ? 'selected' : ''}>${t}</option>`).join("");
   } else {
@@ -349,9 +478,50 @@ function viewProduct(index){
   document.getElementById("modalSize").innerHTML = `<option value="">Select Size</option>` + p.sizes.map(s=>`<option>${s}</option>`).join("");
   document.getElementById("modalColor").innerHTML = `<option value="">Select Color</option>` + p.colors.map(c=>`<option>${c}</option>`).join("");
   document.getElementById("modalQty").value = 1;
-  document.getElementById("productModal").style.display="flex";
+  document.getElementById("productModal").style.display="flex"; 
 }
+
 function closeModal(){ document.getElementById("productModal").style.display="none"; }
+
+const productLinks = document.getElementById("productLinks");
+
+products.forEach((p,index)=>{
+  const btn = document.createElement("button");
+  btn.innerText = p.name;
+  btn.onclick = () => scrollToProduct(index);
+  productLinks.appendChild(btn);
+});
+
+function scrollToProduct(index) {
+    const product = products[index];
+
+    // If product has multiple types, display each type as a separate card
+    if (product.Type && product.Type.length > 1) {
+        const separatedTypes = product.Type.map(typeName => ({
+            ...product,
+            name: `${product.name} - ${typeName}`,  // show type in card title
+            Type: [typeName]  // only one type per card
+        }));
+        renderProducts(separatedTypes);
+    } else {
+        // If product has no multiple types, just render normally
+        renderProducts([product]);
+    }
+
+    // Scroll to the top of the product list
+    window.scrollTo({ top: productList.offsetTop, behavior: 'smooth' });
+}
+// On page load, show all products
+renderProducts(products);
+
+function toggleOptions(index){
+  const optionsDiv = document.getElementById(`options-${index}`);
+  if(optionsDiv.style.display === "none"){
+    optionsDiv.style.display = "block";
+  } else {
+    optionsDiv.style.display = "none";
+  }
+}
 
 // CART FUNCTIONS
 function renderCart(){
@@ -373,16 +543,50 @@ function renderCart(){
   localStorage.setItem("cart", JSON.stringify(cart));
 }
 
-function addToCartModal(){
-   const Type =document.getElementById("modalType").value;
+function addToCart(index){
+  const p = products[index];
+  const size = document.getElementById(`size-${index}`).value;
+  const color = document.getElementById(`color-${index}`).value;
+  const qty = parseInt(document.getElementById(`qty-${index}`).value);
+
+  if(!size || !color || qty < 1){
+    return alert("Select size, color & valid quantity!");
+  }
+
+  cart.push({name:p.name, price:p.price, size, color, qty});
+  renderCart();
+  alert(`${qty} x ${p.name} added to cart!`);
+}
+
+function removeFromCartModal(){
+  if(currentProductIndex === null) return;
+  const p = products[currentProductIndex];
+  // Find item in cart
+  const Type = document.getElementById("modalType").value;
   const size = document.getElementById("modalSize").value;
   const color = document.getElementById("modalColor").value;
-  const qty = parseInt(document.getElementById("modalQty").value);
-  if(!Type || !size || !color || qty<1){ alert("Select Type, size, color & valid quantity!"); return; }
-  const p = products[currentProductIndex];
-  cart.push({name:p.name, price:p.price, Type, size, color, qty});
-  renderCart();
-  closeModal();
+
+  const idx = cart.findIndex(item => item.name===p.name && item.Type===Type && item.size===size && item.color===color);
+  if(idx > -1){
+    cart.splice(idx,1);
+    renderCart();
+    alert("Removed from cart!");
+  } else {
+    alert("Item not in cart");
+  }
+}
+
+
+function decreaseQty(index){
+  const input = document.getElementById(`qty-${index}`);
+  let val = parseInt(input.value);
+  if(val > 1) input.value = val - 1;
+}
+
+function increaseQty(index){
+  const input = document.getElementById(`qty-${index}`);
+  let val = parseInt(input.value);
+  input.value = val + 1;
 }
 
 function buyNowModal(){
