@@ -310,6 +310,40 @@ select,input{width:100%;padding:8px;margin:8px 0;border-radius:5px;border:1px so
     padding:20px 10px;
   }
 }
+.split-modal{
+  display:flex;
+  gap:20px;
+  max-width:800px;
+  width:95%;
+}
+
+/* LEFT SIDE */
+.modal-left{
+  flex:1;
+}
+
+.modal-left img{
+  width:100%;
+  height:100%;
+  max-height:350px;
+  object-fit:cover;
+  border-radius:10px;
+}
+
+/* RIGHT SIDE */
+.modal-right{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+/* MOBILE FIX */
+@media(max-width:768px){
+  .split-modal{
+    flex-direction:column;
+  }
+}
 /* FOOTER */
 footer{background:#0b3d2e;color:#fff;text-align:center;padding:15px;margin-top:40px;}
 </style>
@@ -373,16 +407,17 @@ footer{background:#0b3d2e;color:#fff;text-align:center;padding:15px;margin-top:4
 
 <!-- PRODUCT MODAL -->
 <div class="modal" id="productModal">
-  <div class="modal-content" style="display:flex; flex-direction:row; gap:20px; max-width:800px;">
-    <span class="close" onclick="closeModal()">&times;</span>
+  <div class="modal-content split-modal">
     
-    <!-- LEFT: Zoomed Image -->
-    <div style="flex:1;">
-      <img id="modalImage" style="width:100%; height:auto; border-radius:10px;">
+    <span class="close" onclick="closeModal()">&times;</span>
+
+    <!-- LEFT -->
+    <div class="modal-left">
+      <img id="modalImage">
     </div>
 
-    <!-- RIGHT: Product Info -->
-    <div style="flex:1; display:flex; flex-direction:column; gap:10px;">
+    <!-- RIGHT -->
+    <div class="modal-right">
       <h3 id="modalTitle"></h3>
       <p id="modalDesc"></p>
       <p class="price" id="modalPrice"></p>
@@ -401,8 +436,8 @@ footer{background:#0b3d2e;color:#fff;text-align:center;padding:15px;margin-top:4
 
       <button onclick="addToCartModal()">Add to Cart</button>
       <button class="buy-now" onclick="buyNowModal()">Buy Now</button>
-      <button style="background:#ff4d4d;" onclick="removeFromCartModal()">Remove from Cart</button>
     </div>
+
   </div>
 </div>
 
@@ -419,7 +454,7 @@ function toggleMenu(){ document.getElementById("navMenu").classList.toggle("acti
 const products = [
 { image: "adams.jpg",name:"Adams", desc:".", price:3.5, Type:["Adams Natural","Adams Superfly","Parachute Adams Winger","Standard Adams","Parachute Adams", "Female Adams","Adams Irresistible","Adams Wulff","CDC Adams","Extended Body Adams","Adams Variant","Bead Head Adams (Wet Version)"], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Cream"] },
 { image:"hackle.jpg", name:"Hackle", desc:".", price:3.5, Type:["Yellow Gray","Gray"],sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"bivisible.jpg", name:"Bivisible", desc:"", Price:3.5, Type:["Brown Bivisible","Black Bivisible"], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
+{ image:"bivisible.jpg", name:"Bivisible", desc:"", price:3.5, Type:["Brown Bivisible","Black Bivisible"], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
 { image:"terry.jpg", name:"Terry`s Torror", desc:"", price:3.5,  Type:[""], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
 { image:"coch ordie.webp", name:"Coch Ordie", desc:"", price:3.5,Type:[""], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
 { image:"cahill.webp", name:"Cahill", desc:"", price:3.5, Type:["Cahill Dark","Cahill Pink","Light Cahill Biot","Light Cahill","Parachute Light Cahill"], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
@@ -444,7 +479,7 @@ const products = [
 { image:"drake.webp", name:"Drake", desc:"", price:3.5,Type:["Drake","Green Drake Extended","Green Drake Fanwing","Eastern Green Drake Extended Body","Electric Green Drake Extended Body"], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
 { image:"hexagenia.jpg", name:"Hexagenia", desc:"", price:3.5,Type:["Hexagenia Adult","Hexagenia Hex","Hexagenia Parachute"], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
 { image:"hendrickson.jpg", name:"Hendrickson", desc:"", price:3.5,Type:["Light Hendrickson", "Light Hendrickson Parachute"], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"Mahogany.jpg", namae:"Mahogany", desc:"", price:3.5,Type:["Mahogany Parachute","Mahogany Dun Extended Body"], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
+{ image:"Mahogany.jpg", name:"Mahogany", desc:"", price:3.5,Type:["Mahogany Parachute","Mahogany Dun Extended Body"], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
 { image:"March.png", name:"March", desc:"", price:3.5,Type:["March Brown Western","March Brown","March Brown Parachute"], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
 { image:"dun.webp", name:"Dun", desc:"", price:3.5,Type:["Blue Dun","Pale Morning Dune Zinger","Sulphur Dun","Pale Evining Dun","Pale Evening Dun Parachute","Silhouette Dun Black","Silhouette Dun Olive","Silhouette Dun Gray","Silhouette Dun Tan","Trico Dun"], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
 { image:"cranefly.webp", name:"Cranefly", desc:"", price:3.5,Type:["Cranefly", "Cranefly Deschutes",""], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
@@ -469,16 +504,19 @@ let currentProductIndex = null;
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 // RENDER PRODUCTS
+let displayedProducts = [];
 function renderProducts(filteredProducts){
   productList.innerHTML = "";
 
-  filteredProducts.forEach((p,index)=>{
+  displayedProducts = filteredProducts;
+
+filteredProducts.forEach((p,index)=>{
     const card = document.createElement("div");
     card.className="card";
 
     card.innerHTML = `
       <div class="card-content">
-        <img src="${p.image}" onclick="viewProduct(${products.indexOf(p)})">
+        <img src="${p.image}" onclick="viewProduct(${index})">
         <h3>${p.name}</h3>
         <p>${p.desc.substring(0,50)}...</p>
         <div class="price">USD ${p.price}</div>
@@ -512,22 +550,29 @@ function renderProducts(filteredProducts){
 }
 // VIEW PRODUCT
 function viewProduct(index){
-  currentProductIndex = index;
-  const p = products[index];
+  const p = displayedProducts[index];
+currentProductIndex = index;
+
   document.getElementById("modalTitle").innerText = p.name;
   document.getElementById("modalDesc").innerText = p.desc;
   document.getElementById("modalPrice").innerText = "USD " + p.price;
   document.getElementById("modalImage").src = p.image;
-  if(p.Type && p.Type.length > 0){
-    document.getElementById("modalType").innerHTML = `<option value="">Select Type</option>` +
-      p.Type.map((t,i)=>`<option ${i===0 ? 'selected' : ''}>${t}</option>`).join("");
-  } else {
-    document.getElementById("modalType").innerHTML = `<option value="">No Types Available</option>`;
-  }
-  document.getElementById("modalSize").innerHTML = `<option value="">Select Size</option>` + p.sizes.map(s=>`<option>${s}</option>`).join("");
-  document.getElementById("modalColor").innerHTML = `<option value="">Select Color</option>` + p.colors.map(c=>`<option>${c}</option>`).join("");
+
+  document.getElementById("modalType").innerHTML =
+    `<option value="">Select Type</option>` +
+    (p.Type || []).map(t=>`<option>${t}</option>`).join("");
+
+  document.getElementById("modalSize").innerHTML =
+    `<option value="">Select Size</option>` +
+    p.sizes.map(s=>`<option>${s}</option>`).join("");
+
+  document.getElementById("modalColor").innerHTML =
+    `<option value="">Select Color</option>` +
+    p.colors.map(c=>`<option>${c}</option>`).join("");
+
   document.getElementById("modalQty").value = 1;
-  document.getElementById("productModal").style.display="flex"; 
+
+  document.getElementById("productModal").style.display = "flex";
 }
 
 function closeModal(){ document.getElementById("productModal").style.display="none"; }
@@ -546,7 +591,7 @@ function scrollToProduct(index) {
 
     // If product has multiple types, display each type as a separate card
     if (product.Type && product.Type.length > 1) {
-        const separatedTypes = product.Type.map(typeName => ({
+        const separatedTypes = product.Type.filter(t => t).map(typeName => ({
             ...product,
             name: `${product.name} - ${typeName}`,  // show type in card title
             Type: [typeName]  // only one type per card
@@ -592,19 +637,30 @@ function renderCart(){
   localStorage.setItem("cart", JSON.stringify(cart));
 }
 
-function addToCart(index){
-  const p = products[index];
-  const size = document.getElementById(`size-${index}`).value;
-  const color = document.getElementById(`color-${index}`).value;
-  const qty = parseInt(document.getElementById(`qty-${index}`).value);
+function addToCartModal(){
+  const p = displayedProducts[currentProductIndex];
 
-  if(!size || !color || qty < 1){
-    return alert("Select size, color & valid quantity!");
+  const Type = document.getElementById("modalType").value;
+  const size = document.getElementById("modalSize").value;
+  const color = document.getElementById("modalColor").value;
+  const qty = parseInt(document.getElementById("modalQty").value);
+
+  if(!Type || !size || !color || qty < 1){
+    return alert("Select type, size, color & quantity!");
   }
 
-  cart.push({name:p.name, price:p.price, size, color, qty});
+  cart.push({
+    name: p.name,
+    Type: Type,
+    price: p.price,
+    size,
+    color,
+    qty
+  });
+
   renderCart();
-  alert(`${qty} x ${p.name} added to cart!`);
+  alert(`${qty} x ${p.name} (${Type}) added to cart!`);
+  closeModal();
 }
 
 function removeFromCartModal(){
