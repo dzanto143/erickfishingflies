@@ -514,36 +514,13 @@ filteredProducts.forEach((p,index)=>{
     const card = document.createElement("div");
     card.className="card";
 
-    card.innerHTML = `
-      <div class="card-content">
-        <img src="${p.image}" onclick="viewProduct(${index})">
-        <h3>${p.name}</h3>
-        <p>${p.desc.substring(0,50)}...</p>
-        <div class="price">USD ${p.price}</div>
-
-        <!-- Size & Color hidden initially -->
-        <div id="options-${index}" style="display:none; margin-top:5px;">
-          <select id="size-${index}">
-            <option value="">Choose Size</option>
-            ${p.sizes.map(s=>`<option>${s}</option>`).join("")}
-          </select>
-
-          <select id="color-${index}">
-            <option value="">Choose Color</option>
-            ${p.colors.map(c=>`<option>${c}</option>`).join("")}
-          </select>
-        </div>
-
-        <div style="display:flex; gap:5px; align-items:center; margin:5px 0;">
-        
-          <input type="number" id="qty-${index}" value="1" min="1" style="width:50px; text-align:center;">
-          
-        </div>
-
-        <button onclick="toggleOptions(${index})">Choose Size & Color</button>
-        <button onclick="addToCart(${index})">Add to Cart</button>
-      </div>
-    `;
+card.innerHTML = `
+  <div class="card-content">
+    <img src="${p.image}" onclick="viewProduct(${index})">
+    <h3>${p.name}</h3>
+    <div class="price">USD ${p.price}</div>
+  </div>
+`;
 
     productList.appendChild(card);
   });
