@@ -499,25 +499,10 @@ function toggleMenu(){ document.getElementById("navMenu").classList.toggle("acti
 
 // PRODUCTS DATA
 const products = [
-{ image: "crystal-midge.jpg",name:"Dry Fly Midges", desc:".", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Cream"] },
-{ image:"crystal-midge.jpg", name:"Crystal Midge", desc:".", price:3.5, Type:[],sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Foam Midge Emerger", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Foam Midge", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Greased Lightning", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Midge Black", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Griffiths Gnat Hi-Viz", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Spent Midge Black", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Spent Midge Cream", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Spent Midge Olive", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Spent Midge Tan", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Griffiths Gnat", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Thin Pin Black", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Thin Pin Cream", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Hatchling Midge Black", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Parachute Midge Black", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Stillborn Midge White", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Stillborn Midge Black", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]}
-{ image:"crystal-midge.jpg", name:"Chironomid", desc:"", price:3.5, Type:["Chironomid Natural","Chironomid Juju Zebra","Chironomid Juju Olive","Suspender Pupa","Chironomid Halographic","Chironomid Green","Chironomid Flashback"], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]}
+{ image: "adams.jpg",name:"Forrest Jay's Panty", desc:".", price:3.5, Type:["Forrest Jay's Panty Dropper Pseudo","Forrest Jay's Panty Dropper PMD","Forrest Jay's Panty Dropper Black","Forrest Jay's Panty Dropper Baetis","Forrest Jay's Panty Dropper Rust Orange"], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Cream"] },
+{ image: "CDC Dry Flies.jpg",name:"Bjorn's", desc:".", price:3.5, Type:["Bjorn's Baddest Caddis Olive","Bjorn's Baddest Caddis Brown","Bjorn's Baddest Caddis Orange","Bjorn's Purple Pretty","Bjorn's Red Pretty"], sizes:["10","12","14","16","18","20"], colors:["Green","Brown","Gray","Olive","Yellow", "Cream"] },
+{ image: "Parachute Patterns.webp",name:"Beadhead", desc:".", price:3.5, Type:["Beadhead 3D Nymph Black","Beadhead 3D Nymph","Beadhead Giant John","Beadhead Bird of Prey Olive Dubbed","Beadhead Bird of Prey Olive","Beadhead Bird of Prey Tan Dubbed","Beadhead Bird of Prey Tan","Beadhead Bloody Mary","Beadhead Jumbo John","Beadhead Hat Snail","Beadhead Caddis Bright Green","Beadhead Caddis Green"," Beadhead Caddis Olive"], sizes:["10","12","14","16","18","20"], colors:["Green","Brown","Gray","Olive","Yellow", "Cream"] },
+{ image: "ants.jpg",name:"CATCH'S Coppper", desc:".", price:3.5, Type:["CATCH'S Coppper J Brown","CATCH'S Coppper J Black","CATCH'S Coppper J Blue","CATCH'S Coppper J Chartreuse","CATCH'S Coppper J Green","CATCH'S Coppper J Pink","CATCH'S Coppper J Red","CATCH'S Coppper J Zebra","CATCH'S Coppper J","CATCH'S Coppper K Red TB","CATCH'S Coppper k  Copper TB","CATCH'S Coppper K Chartreuse TB",""], sizes:["10","12","14","16","18","20"], colors:["Black","Brown","Red","Cinnamon"]}
 ];
 
 const productList = document.getElementById("productList");

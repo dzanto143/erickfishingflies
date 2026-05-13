@@ -42,7 +42,17 @@ header{background:#0b3d2e;color:#fff;padding:15px;}
 /* CARD */
 .card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.08);transition:0.3s;padding-bottom:15px;}
 .card:hover{transform:translateY(-8px);box-shadow:0 10px 20px rgba(0,0,0,0.15);}
-.card img{width:100%;height:200px;object-fit:cover;}
+.card img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  cursor:pointer;
+  transition:transform 0.4s ease;
+}
+
+.card img:hover{
+  transform:scale(1.15);
+}
 .card-content{padding:15px;}
 .card h3{margin-bottom:8px;}
 .card p{font-size:14px;color:#555;margin-bottom:10px;}
@@ -156,6 +166,28 @@ select,input{width:100%;padding:8px;margin:8px 0;border-radius:5px;border:1px so
   background:#0b3d2e;
 }
 
+.product-links{
+  display:flex;
+  overflow-x:auto;
+  gap:10px;
+  padding:10px 0;
+  margin-bottom:20px;
+}
+
+.product-links button{
+  white-space:nowrap;
+  padding:8px 15px;
+  border:none;
+  background:#0b3d2e;
+  color:#fff;
+  border-radius:20px;
+  cursor:pointer;
+}
+
+.product-links button:hover{
+  background:#145c46;
+}
+
 /* WHATSAPP FLOATING BUTTON */
 .whatsapp-chat{
   position: fixed;
@@ -204,10 +236,161 @@ select,input{width:100%;padding:8px;margin:8px 0;border-radius:5px;border:1px so
   transition:0.3s;
 }
 
-.card img:hover{
-  transform:scale(1.05);
+@media(max-width:768px){
+  .card img:hover{
+    transform:scale(1.05);
+  }
 }
 
+/* LAYOUT */
+.shop-layout{
+  display:flex;
+  gap:20px;
+  align-items:flex-start;
+}
+
+/* LEFT SIDE */
+.sidebar{
+  width:220px;
+  min-width:200px;
+}
+
+/* MAKE PRODUCT LIST VERTICAL */
+.product-links{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.product-links button{
+  width:100%;
+  text-align:left;
+  border-radius:6px;
+  padding:10px;
+}
+
+/* RIGHT SIDE */
+.main-content{
+  flex:1;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .shop-layout{
+    flex-direction:column;
+  }
+
+  .sidebar{
+    width:100%;
+  }
+
+  .product-links{
+    flex-direction:row;
+    overflow-x:auto;
+  }
+
+  .product-links button{
+    white-space:nowrap;
+  }
+}
+@media(max-width:768px){
+  .modal-content{
+    flex-direction:column !important;
+  }
+}
+.card div[style*="display:flex"]{
+  flex-wrap:wrap;
+}
+@media(max-width:500px){
+  .products{
+    gap:15px;
+  }
+
+  .container{
+    padding:20px 10px;
+  }
+}
+.split-modal{
+  display:flex;
+  gap:20px;
+  max-width:800px;
+  width:95%;
+}
+
+/* LEFT SIDE */
+.modal-left{
+  flex:1;
+}
+
+.modal-left img{
+  width:100%;
+  height:100%;
+  max-height:350px;
+  object-fit:cover;
+  border-radius:10px;
+}
+
+/* RIGHT SIDE */
+.modal-right{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+/* MOBILE FIX */
+@media(max-width:768px){
+  .split-modal{
+    flex-direction:column;
+  }
+}
+/* EXTRA SMALL SCREEN FIX */
+@media (max-width: 480px){
+
+  .modal-content{
+    width: 95%;
+    max-width: 320px;   /* smaller modal */
+    padding: 12px;
+  }
+
+  .modal-left img{
+    max-height: 180px;  /* smaller image */
+  }
+
+  .modal-content h3{
+    font-size: 16px;
+  }
+
+  .modal-content p{
+    font-size: 12px;
+  }
+
+  .modal-content select,
+  .modal-content input{
+    padding: 5px;
+    font-size: 12px;
+  }
+
+  .modal-content button{
+    padding: 7px;
+    font-size: 13px;
+  }
+
+  .split-modal{
+    gap: 10px; /* reduce spacing */
+  }
+
+  .close{
+    font-size: 18px;
+    top: 5px;
+    right: 8px;
+  }
+}
+
+.modal-content{
+  transition: transform 0.3s ease;
+  touch-action: pan-y;
+}
 /* FOOTER */
 footer{background:#0b3d2e;color:#fff;text-align:center;padding:15px;margin-top:40px;}
 </style>
@@ -238,20 +421,21 @@ footer{background:#0b3d2e;color:#fff;text-align:center;padding:15px;margin-top:4
 
 
 <div class="container">
-<h2>Fishing Flies Collection</h2><br>
-<!-- CATEGORY BAR -->
 
-<div class="category-bar">
-  <button onclick="openCategory('streamers.html')">Streamers</button>
-  <button onclick="openCategory('steelhead.html')">Steelhead</button>
-  <button onclick="openCategory('pikeflies.html')">Pike Flies</button>
-  <button onclick="openCategory('nymphs.html')">Nymphs</button>
-  <button onclick="openCategory('lakeflies.html')">Lake Flies</button>
-  <button onclick="openCategory('assortments.html')">Assortments</button>
-  <button onclick="openCategory('dryflies.html')">Dry Flies</button>
+  <div class="shop-layout">
+
+    <!-- LEFT SIDEBAR -->
+<div class="sidebar">
+  <div class="product-links" id="productLinks"></div>
 </div>
 
-<div class="products" id="productList"></div>
+    <!-- RIGHT CONTENT -->
+    <div class="main-content">
+      <h2>Fishing Flies Collection</h2><br>
+      <div class="products" id="productList"></div>
+    </div>
+
+  </div>
 
 <!-- CART SECTION -->
 <section class="cart" id="cartSection">
@@ -264,26 +448,46 @@ footer{background:#0b3d2e;color:#fff;text-align:center;padding:15px;margin-top:4
 </section>
 </div>
 
+<!-- PRODUCT LINKS BAR
+<div class="product-links" id="productLinks"></div> -->
+
+
 <!-- PRODUCT MODAL -->
 <div class="modal" id="productModal">
-  <div class="modal-content">
+  <div class="modal-content split-modal">
+    
     <span class="close" onclick="closeModal()">&times;</span>
-    <img id="modalImage">
-    <h3 id="modalTitle"></h3>
-    <p id="modalDesc"></p>
-    <p class="price" id="modalPrice"></p>
-    <label>Type</label>
-    <select id="modalType"></select>
-    <label>Size</label>
-    <select id="modalSize"></select>
-    <label>Color</label>
-    <select id="modalColor"></select>
-    <label>Quantity</label>
-    <input type="number" id="modalQty" min="1" value="1">
-    <button onclick="addToCartModal()">Add to Cart</button>
-    <button class="buy-now" onclick="buyNowModal()">Buy Now</button>
+
+    <!-- LEFT -->
+    <div class="modal-left">
+      <img id="modalImage">
+    </div>
+
+    <!-- RIGHT -->
+    <div class="modal-right">
+      <h3 id="modalTitle"></h3>
+      <p id="modalDesc"></p>
+      <p class="price" id="modalPrice"></p>
+
+      <label>Type</label>
+      <select id="modalType"></select>
+
+      <label>Size</label>
+      <select id="modalSize"></select>
+
+      <label>Color</label>
+      <select id="modalColor"></select>
+
+      <label>Quantity</label>
+      <input type="number" id="modalQty" min="1" value="1">
+
+      <button onclick="addToCartModal()">Add to Cart</button>
+      <button class="buy-now" onclick="buyNowModal()">Buy Now</button>
+    </div>
+
   </div>
 </div>
+
 
 <footer>
 © 2026 Fishing Flies Shop
@@ -295,14 +499,25 @@ function toggleMenu(){ document.getElementById("navMenu").classList.toggle("acti
 
 // PRODUCTS DATA
 const products = [
-{ image: "Woolly Bugger.jpg",name:"Woolly Bugger", desc:".", price:3.5, Type:["Standard Woolly Bugger","Beadhead Woolly Bugger", "Conehead Woolly Bugger","Crystal Woolly Bugger","Rubber-Leg Woolly Bugger","Sparkle Woolly Bugger","Balanced Woolly Bugger","Mini Woolly Bugger"], sizes:["10","12","14","16","18","20"], colors:["Black","Olive","White","Yellow", "Brown","Red","Orange","Chartreuse","Red & White","Fire Tiger","Purple"] },
-{ image: "Zonker.jpg",name:"Zonker", desc:".", price:3.5, Type:["Standard Zonker", "Beadhead Zonker", "Zonker Streamer","Flash Zonker","Double Zonker","Zonker Leech","Zonker Jig","Mini Zonker"], sizes:["10","12","14","16","18","20"], colors:["Black","Olive","White","Yellow", "Brown","Red","Orange","Chartreuse","Red & White","Fire Tiger","Purple"] },
-{ image: "Muddler Minnow.webp",name:"Muddler Minnow", desc:".", price:3.5, Type:["Original Muddler Minnow","Conehead Muddler","Double Muddler Minnow","Marabou Muddler","Black Muddler","White Muddler Minnow","Zonker Muddler","Muddler Dry (Floating Muddler)"], sizes:["10","12","14","16","18","20"], colors:["Black","Olive","White","Yellow", "Brown","Red","Orange","Chartreuse","Red & White","Fire Tiger","Purple"] },
-{ image: "Clouser Minnow.webp",name:"Clouser Minnow", desc:".", price:3.5, Type:["Classic Clouser Minnow","Flash Clouser","Bucktail Clouser","Craft Fur Clouser","Deep Clouser","Clouser Crayfish","Saltwater Clouser","Mini Clouser"], sizes:["10","12","14","16","18","20"], colors:["Black","Olive","White","Yellow", "Brown","Red","Orange","Chartreuse","Red & White","Fire Tiger","Purple"] },
-{ image: "Matuka.webp",name:"Matuka", desc:".", price:3.5, Type:["Classic Matuka","Beadhead Matuka","Flash Matuka","Zonker Matuka","Marabou Matuka","Sculpin Matuka","Saltwater Matuka","Mini Matuka"], sizes:["10","12","14","16","18","20"], colors:["Black","Olive","White","Yellow", "Brown","Red","Orange","Chartreuse","Red & White","Fire Tiger","Purple"] },
-{ image: "Deceiver.jpeg",name:"Deceiver", desc:".",  price:3.5, Type:["Classic Deceiver","Flash Deceiver","Half & Half","Seaducer","Reverse Deceiver","Epoxy Deceiver","Bulkhead Deceiver","Mini Deceiver"], sizes:["10","12","14","16","18","20"], colors:["Black","Olive","White","Yellow", "Brown","Red","Orange","Chartreuse","Red & White","Fire Tiger","Purple"] },
-{ image: "Sculpin Patterns.gif",name:"Sculpin Patterns", desc:".", price:3.5, Type:["Muddler Minnow","Woolly Sculpin","Zonker Sculpin","Sculpzilla","NearNuff Sculpin","Double Bunny Sculpin","Sculpin Helmet Fly","Matuka Sculpin"], sizes:["10","12","14","16","18","20"], colors:["Black","Olive","White","Yellow", "Brown","Red","Orange","Chartreuse","Red & White","Fire Tiger","Purple"] },
-{ image: "Baitfish Patterns.webp",name:"Baitfish Patterns", desc:".", price:3.5, Type:["Clouser Minnow","Deceiver","Lefty's Deceiver","Surf Candy","EP Baitfish","Murdich Minnow","Game Changer","Zonker"], sizes:["10","12","14","16","18","20"], colors:["Black","Olive","White","Yellow", "Brown","Red","Orange","Chartreuse","Red & White","Fire Tiger","Purple"] },
+{ image: "adams.jpg",name:"Zonker", desc:".", price:3.5, Type:["Zonker Olive","Zonker Pearl","Zonker Copper","Zonker Black"], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Cream"] },
+{ image: "Conehead",name:"Muddler", desc:".", price:3.5, Type:["Muddler Minnow","Conehead Muddler Minnow","Marabou Muddler White","Marabou Muddler Yellow","Muddy Buddy Black","Muddy Buddy Brown","Muddy Buddy Olive","Muddy Buddy Whit"], sizes:["10","12","14","16","18","20"], colors:["Green","Brown","Gray","Olive","Yellow", "Cream"] },
+{ image: "Parachute Patterns.webp",name:"Eric’s Conehead Brush Bugger", desc:".", price:3.5, Type:["Eric’s Conehead Brush Bugger Bluefish","Eric’s Conehead Brush Bugger Black","Eric’s Conehead Brush Bugger Brown","Eric’s Conehead Brush Bugger Olive","Eric’s Conehead Brush Bugger Tan"], sizes:["10","12","14","16","18","20"], colors:["Green","Brown","Gray","Olive","Yellow", "Cream"] },
+{ image: "ants.jpg",name:"Minnow", desc:".", price:3.5, Type:["Flathead Minnow","Foxy Fry","Fry Marabou","Shiner","Gray Ghost","Manx Minnow"], sizes:["10","12","14","16","18","20"], colors:["Black","Brown","Red","Cinnamon"] },
+{ image:"", name:"Belly Dancer",price:3.5, Type:["Belly Dancer Zonker Natural","Belly Dancer Zonker Black","Bug Eye Black Bunny"], sizes:["10","12","14","16","18","20"], colors:["Black","Brown","Red","Cinnamon"] },
+{ image:"", name:"Leech", price:3.5, Type:["Leech Chartreuse","Leech Mini Black"], sizes:["10","12","14","16","18","20"], colors:["Black","Brown","Red","Cinnamon"] },
+{ image:"", name:"Little Brook Trout",price:3.5, Type:["Little Brook Trout","Little Brown Trout","Little Rainbow Trout"], sizes:["10","12","14","16","18","20"], colors:["Black","Brown","Red","Cinnamon"] },
+{ image:"", name:"Matuka",price:3.5, Type:["Matuka Black","Matuka Olive Red","Matuka Olive"], sizes:["10","12","14","16","18","20"], colors:["Black","Brown","Red","Cinnamon"] },
+{ image:"", name:"Mickey Finn",price:3.5, Type:["Mickey Finn","Montana White"], sizes:["10","12","14","16","18","20"], colors:["Black","Brown","Red","Cinnamon"] },
+{ image:"", name:"Bucktail",price:3.5, Type:["Professor Bucktail","Royal Coachman Bucktail"], sizes:["10","12","14","16","18","20"], colors:["Black","Brown","Red","Cinnamon"] },
+{ image:"", name:"Sculpin",price:3.5, Type:["Brown Sculpin Lead Eye","Sculpin Big Eye","Sculpin Dark","Sculpin","Sculpin Head Sculpin Brown","Sculpin Head Sculpin Black","Sculpin Head Sculpin Olive","Bjorn's Sculpin Head Sculpin"], sizes:["10","12","14","16","18","20"], colors:["Black","Brown","Red","Cinnamon"] },
+{ image:"", name:"Skully Bugger",price:3.5, Type:["Skully Bugger Bighorn","Skully Bugger Blue/Black","Skully Bugger Black","Skully Bugger Crawfish","Skully Bugger Olive","Skully Bugger White"], sizes:["10","12","14","16","18","20"], colors:["Black","Brown","Red","Cinnamon"] },
+{ image:"", name:"Schlappen Bugger",price:3.5, Type:["Schlappen Bugger Olive","Schlappen Bugger Black","Schlappen Bugger Brown"], sizes:["10","12","14","16","18","20"], colors:["Black","Brown","Red","Cinnamon"] },
+{ image:"", name:"Fish Skull Sparkle Minnow",price:3.5, Type:["Fish Skull Sparkle Minnow White","Fish Skull Sparkle Minnow Bighorn","Fish Skull Sparkle Minnow Blue Black","Fish Skull Sparkle Minnow Black","Fish Skull Sparkle Minnow Blue BaitFish","Fish Skull Sparkle Minnow Brown","Fish Skull Sparkle Minnow Charireuse","Fish Skull Sparkle Minnow Light Baitfish","Fish Skull Sparkle Minnow Olive Black","Fish Skull Sparkle Minnow Olive","Fish Skull Sparkle Minnow Orange","Fish Skull Sparkle Minnow Rainbow","Fish Skull Sparkle Minnow Silver"], sizes:["10","12","14","16","18","20"], colors:["Black","Brown","Red","Cinnamon"] },
+{ image:"", name:"Eric's Excalibur",price:3.5, Type:["Eric's Excalibur Yellow Olive","Eric's Excalibur Olive","Eric's Excalibur Fire Tiger","Eric's Excalibur Chartreuse","Eric's Excalibur Black"], sizes:["10","12","14","16","18","20"], colors:["Black","Brown","Red","Cinnamon"] },
+{ image:"", name:"CATCH Fringe Minnow",price:3.5, Type:["CATCH Fringe Minnow Yellow","CATCH Fringe Minnow Purple","CATCH Fringe Minnow Black","CATCH Fringe Minnow Bighorn","CATCH Fringe Minnow Baitfish"], sizes:["10","12","14","16","18","20"], colors:["Black","Brown","Red","Cinnamon"] },
+{ image:"", name:"Bunny Buster",price:3.5, Type:["Bunny Buster Rust","Bunny Buster Olive","Bunny Buster Natural","Bunny Buster Black Blue"], sizes:["10","12","14","16","18","20"], colors:["Black","Brown","Red","Cinnamon"] },
+{ image:"", name:"Zoo Cougar",price:3.5, Type:["Zoo Cougar Black","Zoo Cougar Olive","Zoo Cougar Purple","Zoo Cougar Tan","Zoo Cougar Yellow"], sizes:["10","12","14","16","18","20"], colors:["Black","Brown","Red","Cinnamon"] },
+{ image:"", name:"Butt Monkey",price:3.5, Type:["Butt Monkey Black","Butt Monkey Gray","Butt Monkey Olive","Butt Monkey White"], sizes:["10","12","14","16","18","20"], colors:["Black","Brown","Red","Cinnamon"] }
 ];
 
 const productList = document.getElementById("productList");
@@ -313,41 +528,130 @@ let currentProductIndex = null;
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 // RENDER PRODUCTS
-products.forEach((p,index)=>{
-  const card = document.createElement("div");
-  card.className="card";
-card.innerHTML=`
+let displayedProducts = [];
+function renderProducts(filteredProducts){
+  productList.innerHTML = "";
+
+  displayedProducts = filteredProducts;
+
+filteredProducts.forEach((p,index)=>{
+    const card = document.createElement("div");
+    card.className="card";
+
+card.innerHTML = `
   <div class="card-content">
-    <img src="${p.image}" onclick="viewProduct(${index})" style="cursor:pointer">
+    <img src="${p.image}" onclick="viewProduct(${index})">
     <h3>${p.name}</h3>
-    <p>${p.desc.substring(0,50)}...</p>
     <div class="price">USD ${p.price}</div>
-    <button onclick="viewProduct(${index})">View</button>
   </div>
 `;
-  productList.appendChild(card);
-});
 
+    productList.appendChild(card);
+  });
+}
 // VIEW PRODUCT
 function viewProduct(index){
-  currentProductIndex = index;
-  const p = products[index];
+  const p = displayedProducts[index];
+currentProductIndex = index;
+
   document.getElementById("modalTitle").innerText = p.name;
   document.getElementById("modalDesc").innerText = p.desc;
   document.getElementById("modalPrice").innerText = "USD " + p.price;
   document.getElementById("modalImage").src = p.image;
-   if(p.Type && p.Type.length > 0){
-    document.getElementById("modalType").innerHTML = `<option value="">Select Type</option>` +
-      p.Type.map((t,i)=>`<option ${i===0 ? 'selected' : ''}>${t}</option>`).join("");
-  } else {
-    document.getElementById("modalType").innerHTML = `<option value="">No Types Available</option>`;
-  }
-  document.getElementById("modalSize").innerHTML = `<option value="">Select Size</option>` + p.sizes.map(s=>`<option>${s}</option>`).join("");
-  document.getElementById("modalColor").innerHTML = `<option value="">Select Color</option>` + p.colors.map(c=>`<option>${c}</option>`).join("");
+
+  document.getElementById("modalType").innerHTML =
+    `<option value="">Select Type</option>` +
+    (p.Type || []).map(t=>`<option>${t}</option>`).join("");
+
+  document.getElementById("modalSize").innerHTML =
+    `<option value="">Select Size</option>` +
+    p.sizes.map(s=>`<option>${s}</option>`).join("");
+
+  document.getElementById("modalColor").innerHTML =
+    `<option value="">Select Color</option>` +
+    p.colors.map(c=>`<option>${c}</option>`).join("");
+
   document.getElementById("modalQty").value = 1;
-  document.getElementById("productModal").style.display="flex";
+
+  document.getElementById("productModal").style.display = "flex";
 }
+
 function closeModal(){ document.getElementById("productModal").style.display="none"; }
+
+const productLinks = document.getElementById("productLinks");
+
+products.forEach((p,index)=>{
+  const btn = document.createElement("button");
+  btn.innerText = p.name;
+  btn.onclick = () => scrollToProduct(index);
+  productLinks.appendChild(btn);
+});
+
+function scrollToProduct(index) {
+    const product = products[index];
+
+    // If product has multiple types, display each type as a separate card
+    if (product.Type && product.Type.length > 1) {
+        const separatedTypes = product.Type.filter(t => t).map(typeName => ({
+            ...product,
+            name: `${product.name} - ${typeName}`,  // show type in card title
+            Type: [typeName]  // only one type per card
+        }));
+        renderProducts(separatedTypes);
+    } else {
+        // If product has no multiple types, just render normally
+        renderProducts([product]);
+    }
+
+    // Scroll to the top of the product list
+    window.scrollTo({ top: productList.offsetTop, behavior: 'smooth' });
+}
+// On page load, show all products
+renderProducts(products);
+
+function toggleOptions(index){
+  const optionsDiv = document.getElementById(`options-${index}`);
+  if(optionsDiv.style.display === "none"){
+    optionsDiv.style.display = "block";
+  } else {
+    optionsDiv.style.display = "none";
+  }
+}
+
+// CLOSE MODAL WHEN CLICKING OUTSIDE
+const modal = document.getElementById("productModal");
+
+modal.addEventListener("click", function(e){
+  if(e.target === modal){
+    closeModal();
+  }
+});
+
+let touchStartY = 0;
+let touchEndY = 0;
+
+const modalContent = document.querySelector(".modal-content");
+
+modalContent.addEventListener("touchstart", function(e){
+  touchStartY = e.touches[0].clientY;
+});
+
+modalContent.addEventListener("touchmove", function(e){
+  touchEndY = e.touches[0].clientY;
+});
+
+modalContent.addEventListener("touchend", function(){
+  let swipeDistance = touchEndY - touchStartY;
+
+  // if swipe down more than 100px → close
+  if(swipeDistance > 100){
+    closeModal();
+  }
+
+  // reset
+  touchStartY = 0;
+  touchEndY = 0;
+});
 
 // CART FUNCTIONS
 function renderCart(){
@@ -370,15 +674,60 @@ function renderCart(){
 }
 
 function addToCartModal(){
-   const Type =document.getElementById("modalType").value;
+  const p = displayedProducts[currentProductIndex];
+
+  const Type = document.getElementById("modalType").value;
   const size = document.getElementById("modalSize").value;
   const color = document.getElementById("modalColor").value;
   const qty = parseInt(document.getElementById("modalQty").value);
-  if(!Type || !size || !color || qty<1){ alert("Select Type, size, color & valid quantity!"); return; }
-  const p = products[currentProductIndex];
-  cart.push({name:p.name, price:p.price, Type, size, color, qty});
+
+  if(!Type || !size || !color || qty < 1){
+    return alert("Select type, size, color & quantity!");
+  }
+
+  cart.push({
+    name: p.name,
+    Type: Type,
+    price: p.price,
+    size,
+    color,
+    qty
+  });
+
   renderCart();
+  alert(`${qty} x ${p.name} (${Type}) added to cart!`);
   closeModal();
+}
+
+function removeFromCartModal(){
+  if(currentProductIndex === null) return;
+  const p = products[currentProductIndex];
+  // Find item in cart
+  const Type = document.getElementById("modalType").value;
+  const size = document.getElementById("modalSize").value;
+  const color = document.getElementById("modalColor").value;
+
+  const idx = cart.findIndex(item => item.name===p.name && item.Type===Type && item.size===size && item.color===color);
+  if(idx > -1){
+    cart.splice(idx,1);
+    renderCart();
+    alert("Removed from cart!");
+  } else {
+    alert("Item not in cart");
+  }
+}
+
+
+function decreaseQty(index){
+  const input = document.getElementById(`qty-${index}`);
+  let val = parseInt(input.value);
+  if(val > 1) input.value = val - 1;
+}
+
+function increaseQty(index){
+  const input = document.getElementById(`qty-${index}`);
+  let val = parseInt(input.value);
+  input.value = val + 1;
 }
 
 function buyNowModal(){

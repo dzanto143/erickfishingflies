@@ -499,25 +499,14 @@ function toggleMenu(){ document.getElementById("navMenu").classList.toggle("acti
 
 // PRODUCTS DATA
 const products = [
-{ image: "crystal-midge.jpg",name:"Dry Fly Midges", desc:".", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Cream"] },
-{ image:"crystal-midge.jpg", name:"Crystal Midge", desc:".", price:3.5, Type:[],sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Foam Midge Emerger", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Foam Midge", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Greased Lightning", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Midge Black", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Griffiths Gnat Hi-Viz", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Spent Midge Black", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Spent Midge Cream", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Spent Midge Olive", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Spent Midge Tan", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Griffiths Gnat", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Thin Pin Black", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Thin Pin Cream", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Hatchling Midge Black", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Parachute Midge Black", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Stillborn Midge White", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Stillborn Midge Black", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]}
-{ image:"crystal-midge.jpg", name:"Chironomid", desc:"", price:3.5, Type:["Chironomid Natural","Chironomid Juju Zebra","Chironomid Juju Olive","Suspender Pupa","Chironomid Halographic","Chironomid Green","Chironomid Flashback"], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]}
+{ image: "adams.jpg",name:"Ants", desc:".", price:3.5, Type:["Army Ant Olive","Army Ant Red","Chernobyl Ant Natural","Chernobyl Ant Olive","chermobly South Fork",""], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Cream"] },
+{ image: "CDC Dry Flies.jpg",name:"Salamon", desc:".", price:3.5, Type:["Salmon Fly Triple Decker","Salmonfy Big Sky","Salmonfly Giant","Eric`s Salmonfly","Henry`s Fork Salmonfly", "Flush Floater Salmonfly"], sizes:["10","12","14","16","18","20"], colors:["Green","Brown","Gray","Olive","Yellow", "Cream"] },
+{ image: "Parachute Patterns.webp",name:"chernobly", desc:".", price:3.5, Type:["chernobly South Fork","Hard A`s Chubby Chernobyl UV Red","Chubby Chernobyl Black","Chubby Chernobyl Green","Chubby Chernobyl Orange","Chubby Chernobyl Pink","Chubby Chernobyl Tan","Chabby Chernobyl UV Brown","Chubby Chernobyl Peacock","Chubby Chernobyl Black Caddis Green","Chubby Chernobyl Black Purple","Chebby Chernobyl Black Red","Chubby Chernobyl Black Yellow","Chubby Chernobyl Golden Brown","Chubby Chernobyl Peach Pink","Chubby Chernobyl UV Tan"], sizes:["10","12","14","16","18","20"], colors:["Green","Brown","Gray","Olive","Yellow", "Cream"] },
+{ image: "ants.jpg",name:"Chew Toy", desc:".", price:3.5, Type:["Chew Toy Yellow","Chew Toy Orange"], sizes:["10","12","14","16","18","20"], colors:["Black","Brown","Red","Cinnamon"] },
+{ image:"", name:"Stimulator",price:3.5, Type:["Stimulator Olive","Stimulator Orange","Stimulator Royal","Stimulator Tan","Stimulator Yellow","Stimulator Black","Foam Stimulator Yellow","Foam Stimulator Olive","Foam Stimulator Olive Green"], sizes:["10","12","14","16","18","20"], colors:["Black","Brown","Red","Cinnamon"] },
+{ image:"", name:"Beaverkill", price:3.5, Type:["Beaverkill Black","Beaverkill Brown"], sizes:["10","12","14","16","18","20"], colors:["Black","Brown","Red","Cinnamon"] },
+{ image:"", name:"Crackleback",price:3.5, Type:["Crackleback Blue","Crackleblack Brown Spider","Crackleback Chartreuse","Crackleback Plae Olive","Crackleback Red"], sizes:["10","12","14","16","18","20"], colors:["Black","Brown","Red","Cinnamon"] },
+{ image:"", name:"Say Ahh",price:3.5, Type:["Say Ahh Purple","Say Ahh Tan","Say Ahh Orange","Say Ahh Light Olive","Say Ahh Olive","Say Ahh Yellow","Say Ahh Black","Say Ahh Brown"], sizes:["10","12","14","16","18","20"], colors:["Black","Brown","Red","Cinnamon"] }
 ];
 
 const productList = document.getElementById("productList");

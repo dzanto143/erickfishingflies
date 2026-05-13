@@ -499,25 +499,22 @@ function toggleMenu(){ document.getElementById("navMenu").classList.toggle("acti
 
 // PRODUCTS DATA
 const products = [
-{ image: "crystal-midge.jpg",name:"Dry Fly Midges", desc:".", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Cream"] },
-{ image:"crystal-midge.jpg", name:"Crystal Midge", desc:".", price:3.5, Type:[],sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Foam Midge Emerger", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Foam Midge", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Greased Lightning", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Midge Black", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Griffiths Gnat Hi-Viz", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Spent Midge Black", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Spent Midge Cream", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Spent Midge Olive", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Spent Midge Tan", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Griffiths Gnat", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Thin Pin Black", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Thin Pin Cream", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Hatchling Midge Black", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Parachute Midge Black", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Stillborn Midge White", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Stillborn Midge Black", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]}
-{ image:"crystal-midge.jpg", name:"Chironomid", desc:"", price:3.5, Type:["Chironomid Natural","Chironomid Juju Zebra","Chironomid Juju Olive","Suspender Pupa","Chironomid Halographic","Chironomid Green","Chironomid Flashback"], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]}
+{ image: "adams.jpg",name:"Bjorn's", desc:".", price:3.5, Type:["Bjorn's Wicked Witch","Bjorn's Huckleberry Finn","Bjorn's Clearwater Crusher"], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Cream"] },
+{ image: "Conehead",name:"River", desc:".", price:3.5, Type:["Copper River Sparkler","Russian River Phoenix"], sizes:["10","12","14","16","18","20"], colors:["Green","Brown","Gray","Olive","Yellow", "Cream"] },
+{ image: "Parachute Patterns.webp",name:"Foul Temptress", desc:".", price:3.5, Type:["Foul Temptress"], sizes:["10","12","14","16","18","20"], colors:["Green","Brown","Gray","Olive","Yellow", "Cream"] },
+{ image: "ants.jpg",name:"Morning Star", desc:".", price:3.5, Type:["Morning Star"], sizes:["10","12","14","16","18","20"], colors:["Black","Brown","Red","Cinnamon"] },
+{ image:"", name:"Lemon Lime",price:3.5, Type:["Lemon Lime"], sizes:["10","12","14","16","18","20"], colors:["Black","Brown","Red","Cinnamon"] },
+{ image:"", name:"Egg Sucking Leech", price:3.5, Type:["Egg Sucking Leech Purple","Egg Sucking Leech Black"], sizes:["10","12","14","16","18","20"], colors:["Black","Brown","Red","Cinnamon"] },
+{ image:"", name:"Conehead Manhattan",price:3.5, Type:["Conehead Manhattan"], sizes:["10","12","14","16","18","20"], colors:["Black","Brown","Red","Cinnamon"] },
+{ image:"", name:"Coho",price:3.5, Type:["Coho Kryptorite","Coho Comet"], sizes:["10","12","14","16","18","20"], colors:["Black","Brown","Red","Cinnamon"] },
+{ image:"", name:"Cromo Magnet",price:3.5, Type:["Cromo Magnet Purple","Cromo Magnet Pink"], sizes:["10","12","14","16","18","20"], colors:["Black","Brown","Red","Cinnamon"] },
+{ image:"", name:"Chernobyl Wog",price:3.5, Type:["Chernobyl Wog"], sizes:["10","12","14","16","18","20"], colors:["Black","Brown","Red","Cinnamon"] },
+{ image:"", name:"Bunny Fly Chartreuse",price:3.5, Type:["Bunny Fly Chartreuse"], sizes:["10","12","14","16","18","20"], colors:["Black","Brown","Red","Cinnamon"] },
+{ image:"", name:"Silver",price:3.5, Type:["Silver Demon","Silver Hilton","Silver Doctor"], sizes:["10","12","14","16","18","20"], colors:["Black","Brown","Red","Cinnamon"] },
+{ image:"", name:"Boss",price:3.5, Type:["Boss Orange","Boss Orange Body","Black Boss"], sizes:["10","12","14","16","18","20"], colors:["Black","Brown","Red","Cinnamon"] },
+{ image:"", name:"Flash Fly",price:3.5, Type:["Flash Fly ","Flash Fly Purple","Flash Fly Cranberry","Flash Fly Light",""], sizes:["10","12","14","16","18","20"], colors:["Black","Brown","Red","Cinnamon"] },
+{ image:"", name:"Steelhead",price:3.5, Type:["Steelhead Sunset","Steelhead Seud","Steelhead Lightning Bug",""], sizes:["10","12","14","16","18","20"], colors:["Black","Brown","Red","Cinnamon"] },
+{ image:"", name:"Leech",price:3.5, Type:["Hot Shot Leech Purple","Hot Shot Leech Black","Hareball Leech White","Hareball Leech Purple","Hareball Leech Pink Orange","Hareball Leech Fuschia","Hareball Leech Blue","Hareball Leech Black"], sizes:["10","12","14","16","18","20"], colors:["Black","Brown","Red","Cinnamon"] }
 ];
 
 const productList = document.getElementById("productList");

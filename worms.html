@@ -499,25 +499,13 @@ function toggleMenu(){ document.getElementById("navMenu").classList.toggle("acti
 
 // PRODUCTS DATA
 const products = [
-{ image: "crystal-midge.jpg",name:"Dry Fly Midges", desc:".", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Cream"] },
-{ image:"crystal-midge.jpg", name:"Crystal Midge", desc:".", price:3.5, Type:[],sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Foam Midge Emerger", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Foam Midge", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Greased Lightning", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Midge Black", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Griffiths Gnat Hi-Viz", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Spent Midge Black", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Spent Midge Cream", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Spent Midge Olive", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Spent Midge Tan", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Griffiths Gnat", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Thin Pin Black", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Thin Pin Cream", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Hatchling Midge Black", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Parachute Midge Black", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Stillborn Midge White", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Stillborn Midge Black", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]}
-{ image:"crystal-midge.jpg", name:"Chironomid", desc:"", price:3.5, Type:["Chironomid Natural","Chironomid Juju Zebra","Chironomid Juju Olive","Suspender Pupa","Chironomid Halographic","Chironomid Green","Chironomid Flashback"], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]}
+{ image: "adams.jpg",name:"Micro Worm", desc:".", price:3.5, Type:["Micro Worm Brown","Micro Worm Orange","Micro Worm Pink","Micro Worm Purple","Micro Worm Red","Micro Worm Tan","Micro Worm Wine",""], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Cream"] },
+{ image: "CDC Dry Flies.jpg",name:"Red Hat Warm", desc:".", price:3.5, Type:["Red Hat Worm"], sizes:["10","12","14","16","18","20"], colors:["Green","Brown","Gray","Olive","Yellow", "Cream"] },
+{ image: "Parachute Patterns.webp",name:"San Juan Worm", desc:".", price:3.5, Type:["San Juan Worm Brown","San Juan Worm Orange","San Juan Worm Pink","San Juan Worm Purple","San Juan Worm Red","San Juan Worm Tan","San Juan Worm Wine","Strung Out San JUan"], sizes:["10","12","14","16","18","20"], colors:["Green","Brown","Gray","Olive","Yellow", "Cream"] },
+{ image: "ants.jpg",name:"Two Tone San Juan Worm", desc:".", price:3.5, Type:["Two Tone San Juan Worm Brown Orange","Two Tone San Juan Worm Brown Tan","Two Tone San Juan Worm Orange","Two Tone San Juan Worm Pink Purple","Two Tone San Juan Worm Red Brown","Two Tone San Juan Worm Tan Orange","Two Tone San Juan Worm Wine Brown Tan","Two Tone San Juan Orange","Two Tone San Juan Worm Pink Purple","Two Tone San Juan Worm Red Brown","Two Tone San Juan Worm Tan Orange","Two Tone San Juan Worm Wine Brown",'Two Tone San Juan Worm Wine Red'], sizes:["10","12","14","16","18","20"], colors:["Black","Brown","Red","Cinnamon"]},
+{ image: "ants.jpg",name:"Wire Worm", desc:".", price:3.5, Type:["Wire Worm Brown Orange","Wire Worm Brown Red","Wire Worm Orange Red","Wire Worm Wine Red","Wire Worm Red","Wire Worm Orange","Wire Worm Wine"], sizes:["10","12","14","16","18","20"], colors:["Black","Brown","Red","Cinnamon"]},
+{ image: "ants.jpg",name:"Aquatic Earthworm", desc:".", price:3.5, Type:["Aquatic Eartworm"], sizes:["10","12","14","16","18","20"], colors:["Black","Brown","Red","Cinnamon"]},
+{ image: "ants.jpg",name:"Eric's Firebeaad Sparkle Worm", desc:".", price:3.5, Type:["Eric's Firebeaad Sparkle Worm Brown Orange","Eric's Firebeaad Sparkle Worm Brown Tan","Eric's Firebeaad Sparkle Worm Orange","Eric's Firebeaad Sparkle Worm Purple Pink","Eric's Firebeaad Sparkle Worm Red","Eric's Firebeaad Sparkle Worm Red Brown","Eric's Firebeaad Sparkle Worm Tan","Eric's Firebeaad Sparkle Worm Wine Red"], sizes:["10","12","14","16","18","20"], colors:["Black","Brown","Red","Cinnamon"]}
 ];
 
 const productList = document.getElementById("productList");

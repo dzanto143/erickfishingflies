@@ -499,25 +499,12 @@ function toggleMenu(){ document.getElementById("navMenu").classList.toggle("acti
 
 // PRODUCTS DATA
 const products = [
-{ image: "crystal-midge.jpg",name:"Dry Fly Midges", desc:".", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Cream"] },
-{ image:"crystal-midge.jpg", name:"Crystal Midge", desc:".", price:3.5, Type:[],sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Foam Midge Emerger", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Foam Midge", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Greased Lightning", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Midge Black", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Griffiths Gnat Hi-Viz", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Spent Midge Black", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Spent Midge Cream", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Spent Midge Olive", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Spent Midge Tan", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Griffiths Gnat", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Thin Pin Black", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Thin Pin Cream", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Hatchling Midge Black", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Parachute Midge Black", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Stillborn Midge White", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]},
-{ image:"crystal-midge.jpg", name:"Stillborn Midge Black", desc:"", price:3.5, Type:[], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]}
-{ image:"crystal-midge.jpg", name:"Chironomid", desc:"", price:3.5, Type:["Chironomid Natural","Chironomid Juju Zebra","Chironomid Juju Olive","Suspender Pupa","Chironomid Halographic","Chironomid Green","Chironomid Flashback"], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Dark", "Gray", "Cream"]}
+{ image: "adams.jpg",name:"Forrest Jay's UV Eddie Vedder", desc:".", price:3.5, Type:["Forrest Jay's UV Eddie Vedder Tan","Forrest Jay's UV Eddie Vedder Gray","Forrest Jay's UV Eddie Vedder pink"], sizes:["10","12","14","16","18","20"], colors:["Brown","Gray","Olive","Yellow", "Cream"] },
+{ image: "CDC Dry Flies.jpg",name:"Soft Hackle", desc:".", price:3.5, Type:["Soft Hackle Sowbug Tan","Soft Hackle Sowbug Pink","Soft Hackle Sowbug Gray","Soft Hackle Ray Charles Tan","Soft Hackle Ray Charles Pink","Soft Hackle Ray Charles Pink","Soft Hackle Ray Charles Orange","Soft Hackle Ray Charles Gray"], sizes:["10","12","14","16","18","20"], colors:["Green","Brown","Gray","Olive","Yellow", "Cream"] },
+{ image: "Parachute Patterns.webp",name:"Scud", desc:".", price:3.5, Type:["Scud Orange","Scud Gray Olive","Scud Brown Olive","Original Bighorn Scud Orange","Original Bighorn Scud Olive","Original Bighorn Scud Gray","Original Bighorn Scud Dark Orange","Original Bighorn Scud Pink","Original Bighorn Scud Tan"], sizes:["10","12","14","16","18","20"], colors:["Green","Brown","Gray","Olive","Yellow", "Cream"] },
+{ image: "ants.jpg",name:"Firebead", desc:".", price:3.5, Type:["Firebead Soft Hackle Sowbug Tan","Firebead Soft Hackle Sowbug Pink","Firebead Soft Hackle Sowbug Gray","Firebead Soft Hackle Ray Charles Tan","Firebead Soft Hackle Ray Charles Pink","Firebead Soft Hackle Ray Charles Gray","Firebead Ray Charles Orange","Firebead Ray Charles Gray","Firebead Ray Charles Pink"], sizes:["10","12","14","16","18","20"], colors:["Black","Brown","Red","Cinnamon"]},
+{ image: "ants.jpg",name:"Crystal Back Scud", desc:".", price:3.5, Type:["Crystal Back Scud Orange","Crystal Back Scud Olive","Crystal Back Scud Gray","Crystal Back Scud Dark Orange","Crystal Back Scud Tan","Crystal Back Scud Pink","Beadhead Scud Olive"], sizes:["10","12","14","16","18","20"], colors:["Black","Brown","Red","Cinnamon"]},
+{ image: "ants.jpg",name:"Shrimp", desc:".", price:3.5, Type:["Shirimp #1","Shirimp #2","Shirimp #3","Shirimp #4","Shirimp #5","Shirimp #6","Shirimp #7","Shirimp #8"], sizes:["10","12","14","16","18","20"], colors:["Black","Brown","Red","Cinnamon"]}
 ];
 
 const productList = document.getElementById("productList");
